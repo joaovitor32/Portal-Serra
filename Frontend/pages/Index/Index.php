@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href='../../components/footer/footer.css'>
     <link rel='stylesheet' type='text/css' href='../../components/form/styles.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/barra-de-navegacao/barra-de-navegacao.css'>
     <link rel='stylesheet' type='text/css' href='./Index.css'>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,6 +22,9 @@
     ?>
     <?php    
         require("../../components/footer/footer.php")
+    ?>
+    <?php
+        require("../../components/barra-de-navegacao/barra-de-navegacao.php")
     ?>
 </body>
 
