@@ -70,7 +70,7 @@
                 $conexao->exec("SET NAME utf8");
                 $stmtCreate->bindParam(1,$this->title);
                 $stmtCreate->bindParam(2,$this->texto);
-                $stmtCreate->bindParam(4,$this->data);
+                $stmtCreate->bindParam(3,$this->data);
                 $result=$stmtCreate->execute();
 
                 if($result){
@@ -94,7 +94,7 @@
 
                 $conexao=$db->conect_database();
 
-                $sqlRead="SELECT title,texto,observacao,`data` FROM Noticia WHERE idNoticia=?";
+                $sqlRead="SELECT title,texto,`data` FROM Noticia WHERE idNoticia=?";
                 $conexao->exec("SET NAME utf8");
 
                 $stmtRead=$conexao->prepare($sqlRead);
@@ -124,7 +124,7 @@
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->title);
                 $stmtUpdate->bindParam(2,$this->texto);
-                $stmtUpdate->bindParam(4,$this->data);
+                $stmtUpdate->bindParam(3,$this->data);
 
                 $result=$stmtUpdate->execute();
 
