@@ -132,13 +132,14 @@
 
                 $conexao=$db->conect_database();
 
-                $sqlUpdate="UPDATE users SET full_name=?, entrada=?, cargo=?,senha=?";
+                $sqlUpdate="UPDATE users SET full_name=?, entrada=?, cargo=?,senha=? WHERE codUser=?";
                 $conexao->exec("SET NAME utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->full_name);
                 $stmtUpdate->bindParam(2,$this->entrada);
                 $stmtUpdate->bindParam(3,$this->cargo);
                 $stmtUpdate->bindParam(4,$this->senha);
+                $stmtUpdate->bindParam(4,$this->codUser);
                 $result=$stmtUpdate->execute();
 
                 if($result){
