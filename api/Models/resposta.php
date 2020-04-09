@@ -127,13 +127,14 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlUpdate="UPDATE resposta SET questao1=?,questao2=?,observacao=?,`data`=?";
+                $sqlUpdate="UPDATE resposta SET questao1=?,questao2=?,observacao=?,`data`=? WHERE idResposta=?";
                 $conexao->exec("SET NAME utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->questao1);
                 $stmtUpdate->bindParam(2,$this->questao2);
                 $stmtUpdate->bindParam(3,$this->observacao);
                 $stmtUpdate->bindParam(4,$this->data);
+                $stmtUpdate->bindParam(4,$this->idRespsota);
 
                 $result=$stmtUpdate->execute();
 
