@@ -119,12 +119,13 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlUpdate="UPDATE noticia SET title=?,texto=?,`data`=?";
+                $sqlUpdate="UPDATE noticia SET title=?,texto=?,`data`=? WHERE idNoticia=?";
                 $conexao->exec("SET NAME utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->title);
                 $stmtUpdate->bindParam(2,$this->texto);
                 $stmtUpdate->bindParam(3,$this->data);
+                $stmtUpdate->bindParam(4,$this->idNoticia);
 
                 $result=$stmtUpdate->execute();
 
