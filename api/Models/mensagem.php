@@ -1,17 +1,17 @@
 <?php
-    class Noticia{
+    class Mensagem{
 
-        private $idNoticia;
-        private $title;
+        private $idMensagem;
+        private $mensagem;
         private $texto;
         private $data;
 
         //Gets
-        public function getIdNoticia(){
-            return $this->idNoticia;
+        public function getIdMensagem(){
+            return $this->idMensagem;
         }
-        public function getTitle(){
-            return $this->texto;
+        public function getMensagem(){
+            return $this->mensagem;
         }
         public function getTexto(){
             return $this->texto;
@@ -21,11 +21,11 @@
         }
 
         //Sets
-        public function setIdNoticia($idNoticia){
-            $this->idNoticia=$idNoticia;
+        public function setIdMensagem($idMensagem){
+            $this->idMensagem=$idMensagem;
         }
-        public function setTitle($title){
-            $this->title=$title;
+        public function setMensagem($mensagem){
+            $this->mensagem=$mensagem;
         }
         public function setTexto($texto){
             $this->texto=$texto;
@@ -43,13 +43,13 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlLista="SELECT title,texto,`data` FROM noticia";
+                $sqlLista="SELECT mensagem,texto,`data` FROM mensagem";
                 $conexao->exec("SET NAME utf8");
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
 
-                $noticias=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
-                return json_encode($noticias);
+                $mensagens=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
+                return json_encode($mensagens);
 
             }catch(PDOExcetpion $e){
                 http_response_code(500);
@@ -66,9 +66,9 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlCreate="INSERT INTO noticia(?,?,?)";
+                $sqlCreate="INSERT INTO mensagem(?,?,?)";
                 $conexao->exec("SET NAME utf8");
-                $stmtCreate->bindParam(1,$this->title);
+                $stmtCreate->bindParam(1,$this->mensagem);
                 $stmtCreate->bindParam(2,$this->texto);
                 $stmtCreate->bindParam(3,$this->data);
                 $result=$stmtCreate->execute();
@@ -94,15 +94,15 @@
 
                 $conexao=$db->conect_database();
 
-                $sqlRead="SELECT title,texto,`data` FROM noticia WHERE idNoticia=?";
+                $sqlRead="SELECT mensagem,texto,`data` FROM mensagem WHERE idMensagem=?";
                 $conexao->exec("SET NAME utf8");
 
                 $stmtRead=$conexao->prepare($sqlRead);
-                $stmtRead->bindParam(1,$this->idNoticia);
+                $stmtRead->bindParam(1,$this->idMensagem);
                 $stmtRead->execute();
 
-                $noticia=$stmtRead->fetch(PDO::FETCH_ASSOC);
-                echo json_encode($noticia);
+                $mensagem=$stmtRead->fetch(PDO::FETCH_ASSOC);
+                echo json_encode($mensagem);
 
             }catch(PDOException $e){
                 http_response_code(500);
@@ -119,13 +119,13 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlUpdate="UPDATE noticia SET title=?,texto=?,`data`=? WHERE idNoticia=?";
+                $sqlUpdate="UPDATE mensagem SET mensagem=?,texto=?,`data`=? WHERE = idMensagem=?";
                 $conexao->exec("SET NAME utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
-                $stmtUpdate->bindParam(1,$this->title);
+                $stmtUpdate->bindParam(1,$this->mensagem);
                 $stmtUpdate->bindParam(2,$this->texto);
                 $stmtUpdate->bindParam(3,$this->data);
-                $stmtUpdate->bindParam(4,$this->idNoticia);
+                $stmtUpdate->bindParam(4,$this->idMensagem);
 
                 $result=$stmtUpdate->execute();
 
@@ -151,18 +151,18 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlDelete="DELETE FROM noticia WHERE idNoticia=?";
+                $sqlDelete="DELETE FROM mensagem WHERE idMensagem=?";
                 $conexao->exec("SET NAME utf8");
 
                 $stmtDelete=$conexao->prepare($sqlDelete);
-                $stmtDelete->bindParam(1,$this->idNoticia);
+                $stmtDelete->bindParam(1,$this->idMensagem);
                 $result=$stmtDelete->execute();
                 
                 if($result){
                     http_response_code(204);
                 }else{
                     http_response_code(400);
-                    echo json_encode("Error","Não foi possível excluir notícia");
+                    echo json_encode("Error","Não foi possível excluir mensagem");
                 }
 
             }catch(PDOException $e){
