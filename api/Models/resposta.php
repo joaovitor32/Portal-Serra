@@ -134,7 +134,7 @@
                 $stmtUpdate->bindParam(2,$this->questao2);
                 $stmtUpdate->bindParam(3,$this->observacao);
                 $stmtUpdate->bindParam(4,$this->data);
-                $stmtUpdate->bindParam(4,$this->idRespsota);
+                $stmtUpdate->bindParam(5,$this->idRespsota);
 
                 $result=$stmtUpdate->execute();
 
