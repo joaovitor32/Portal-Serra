@@ -6,7 +6,7 @@
 
         switch($data->action){
             case "CADASTRO_USUARIO":
-                include '../Models/users';
+                include '../Models/users.php';
                 $user=new User();
                 $user->setFull_Name($requestBody->full_name);
                 $user->setCargo($requestBody->cargo);

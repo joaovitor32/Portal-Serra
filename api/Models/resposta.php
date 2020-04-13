@@ -58,7 +58,7 @@
                 $respostas=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
                 return json_encode($respostas);
 
-            }catch(PDOExcetpion $e){
+            }catch(PDOException $e){
                 http_response_code(500);
                 echo json_encode("Error",$e->getMessage());
             }
