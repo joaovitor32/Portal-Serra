@@ -7,13 +7,13 @@
         switch($requestBody->action){
             case "GET_NOTICIAS":
                 include '../Models/noticia.php';
-                $noticia=new  noticia();
+                $noticia=new  Noticia();
                 $noticia->lista();
                 return;
             break;
             case "CREATE_NOTICIA":
                 include '../Models/noticia.php';
-                $noticia=new noticia();
+                $noticia=new Noticia();
                 $noticia->setTitle($requestBody->title);
                 $noticia->setTexto($requestBody->texto);
                 $noticia->setData($requestBody->data);
@@ -22,14 +22,14 @@
             break;
             case "READ_NOTICIA":
                 include "../Models/noticia.php";
-                $noticia=new noticia();
+                $noticia=new Noticia();
                 $noticia->setIdNoticia($requestBody->idNoticia);
                 $noticia->read();
                 return;
             break;
             case "UPDATE_NOTICIA":
                 include "../Models/noticia.php";
-                $noticia=new noticia();
+                $noticia=new Noticia();
                 $noticia->setIdNoticia($requestBody->idNoticia);
                 $noticia->setTitle($requestBody->title);
                 $noticia->setTexto($requestBody->texto);
@@ -39,7 +39,7 @@
             break;
             case "DELETE_NOTICIA":
                 include "../Models/noticia.php";
-                $noticia=new noticia();
+                $noticia=new Noticia();
                 $noticia->setIdNoticia($requestBody->idNoticia);
                 $noticia->delete();
                 return;
