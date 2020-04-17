@@ -5,30 +5,31 @@
 
             switch($acao){
                 case "GET_RESPOSTAS":
-                    include '../Models/resposta.php';
+                    include '../../Models/resposta.php';
                     $resposta=new  Resposta();
                     $resposta->lista();
                     return;
                 break;
                 case "CREATE_RESPOSTA":
-                    include '../Models/resposta.php';
+                    include '../../Models/resposta.php';
                     $resposta=new Resposta();
                     $resposta->setQuestao1($requestBody->questao1);
                     $resposta->setQuestao2($requestBody->questao2);
                     $resposta->setObservacao($requestBody->observacao);
                     $resposta->setData($requestBody->data);
+                    $resposta->setCodUser($requestBody->codUser);
                     $resposta->create();
                     return;
                 break;
                 case "READ_RESPOSTA":
-                    include "../Models/resposta.php";
+                    include "../../Models/resposta.php";
                     $resposta=new Resposta();
                     $resposta->setIdResposta($requestBody->idResposta);
                     $resposta->read();
                     return;
                 break;
                 case "UPDATE_RESPOSTA":
-                    include "../Models/resposta.php";
+                    include "../../Models/resposta.php";
                     $resposta=new Resposta();
                     $resposta->setIdResposta($requestBody->idResposta);
                     $resposta->setQuestao1($requestBody->questao1);
@@ -39,7 +40,7 @@
                     return;
                 break;
                 case "DELETE_RESPOSTA":
-                    include "../Models/resposta.php";
+                    include "../../Models/resposta.php";
                     $resposta=new Resposta();
                     $resposta->setIdResposta($requestBody->idResposta);
                     $resposta->delete();

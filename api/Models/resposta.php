@@ -6,6 +6,7 @@
         private $questao2;
         private $observacao;
         private $data;
+        private $codUser;
 
         //Gets
         public function getIdResposta(){
@@ -22,6 +23,10 @@
         }
         public function getData(){
             return $this->data;
+        }
+
+        public function getCodUser(){
+            return $this->codUser;
         }
 
         //Sets
@@ -41,24 +46,28 @@
             $this->data=$data;
         }
 
+        public function setCoduser($codUser){
+            $this->codUser=$codUser;
+        }
+
 
         public function lista(){
             try{
                 
-                include('../database.class.php');
+                include('../../database.class.php');
 
                 $db=new Database();
                 $conexao=$db->conect_database();
 
                 $sqlLista="SELECT questao1,questao2,observacao,`data` FROM resposta";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
 
                 $respostas=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
-                return json_encode($respostas);
+                echo json_encode($respostas);
 
-            }catch(PDOExcetpion $e){
+            }catch(PDOException $e){
                 http_response_code(500);
                 echo json_encode("Error",$e->getMessage());
             }
@@ -68,22 +77,27 @@
 
             try{
 
-                include('../database.class.php');
+                include('../../database.class.php');
 
                 $db=new Database();
                 $conexao=$db->conect_database();
-
-                $sqlCreate="INSERT INTO resposta(?,?,?,?)";
-                $conexao->exec("SET NAME utf8");
+                $conexao->beginTransaction();
+                $sqlCreate="INSERT INTO resposta(questao1,questao2,observacao,`data`,codUser) VALUES (?,?,?,?,?)";
+                $conexao->exec("SET NAMES utf8");
+                
+                $stmtCreate=$conexao->prepare($sqlCreate);
                 $stmtCreate->bindParam(1,$this->questao1);
                 $stmtCreate->bindParam(2,$this->questao2);
                 $stmtCreate->bindParam(3,$this->observacao);
                 $stmtCreate->bindParam(4,$this->data);
+                $stmtCreate->bindParam(5,$this->codUser);
                 $result=$stmtCreate->execute();
 
                 if($result){
+                    $conexao->commit();
                     http_response_code(201);
                 }else{
+                    $conexao->rollBack();
                     http_response_code(400);
                     echo json_encode("Error",$e->getMessage());
                 }
@@ -97,13 +111,13 @@
         public function read(){
             try{
 
-                include("../database.class.php");
+                include("../../database.class.php");
                 $db=new Database();
 
                 $conexao=$db->conect_database();
 
                 $sqlRead="SELECT questao1,questao2,observacao,`data` FROM resposta WHERE idResposta=?";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
 
                 $stmtRead=$conexao->prepare($sqlRead);
                 $stmtRead->bindParam(1,$this->idResposta);
@@ -122,13 +136,13 @@
 
             try{
 
-                include('../database.class.php');
+                include('../../database.class.php');
 
                 $db=new Database();
                 $conexao=$db->conect_database();
 
                 $sqlUpdate="UPDATE resposta SET questao1=?,questao2=?,observacao=?,`data`=? WHERE idResposta=?";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->questao1);
                 $stmtUpdate->bindParam(2,$this->questao2);
@@ -140,7 +154,7 @@
 
                 if($result){
                     http_response_code(200);
-                    $this->read();
+                    //$this->read();
                 }else{
                     http_response_code(500);
                     echo json_encode("Error",$e->getMessage());
@@ -155,13 +169,13 @@
         public function delete(){
             try{
 
-                include("../database.class.php");
+                include("../../database.class.php");
 
                 $db=new Database();
                 $conexao=$db->conect_database();
 
                 $sqlDelete="DELETE FROM resposta WHERE idResposta=?";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
 
                 $stmtDelete=$conexao->prepare($sqlDelete);
                 $stmtDelete->bindParam(1,$this->idResposta);

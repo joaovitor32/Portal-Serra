@@ -5,7 +5,7 @@
 
     try{
         include('../../controller/users.php');
-        execute_action("CADASTRO_USUARIO", $requestHeaders, $requestBody);
+        execute_action("CADASTRO_USUARIO", $requestBody,$requestHeaders);
     }catch(PDOException $e) {
         http_response_code(400);
         echo json_encode("error",$e->getMessage());

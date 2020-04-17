@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '../../vendor/autoload.php';
 use Firebase\JWT\JWT;
 
 class User{
@@ -68,7 +68,7 @@ class User{
 
         try {
 
-            include("../database.class.php");
+            include("../../database.class.php");
 
             $db = new Database();
             $conexao = $db->conect_database();
@@ -79,7 +79,7 @@ class User{
             $stmtLista->execute();
 
             $users = $stmtLista->fetchALL(PDO::FETCH_ASSOC);
-            return json_encode($users);
+            echo json_encode($users);
         } catch (PDOException $e) {
             http_response_code(500);
             echo json_encode("Erro", $e->getMessage());
@@ -91,13 +91,15 @@ class User{
 
         try {
 
-            include('../database.class.php');
+            include('../../database.class.php');
 
             $db = new Database();
-            $conexao = $db->conect_database();
+            $conexao =$db->conect_database();
+            $conexao->beginTransaction();
 
-            $sqlCreate = "INSERT INTO users(full_name,entrada,cargo,senha)";
+            $sqlCreate = "INSERT INTO users(full_name,entrada,cargo,senha) VALUES (?,?,?,?)";
             $conexao->exec('SET NAMES utf8');
+            $stmtCreate=$conexao->prepare($sqlCreate);
             $stmtCreate->bindParam(1, $this->full_name);
             $stmtCreate->bindParam(2, $this->entrada);
             $stmtCreate->bindParam(3, $this->cargo);
@@ -105,14 +107,17 @@ class User{
             $result = $stmtCreate->execute();
 
             if ($result) {
+                $conexao->commit();
                 http_response_code(201);
+                json_encode($result);
             } else {
+                $conexao->rollBack();
                 http_response_code(400);
-                echo json_encode("Error:", "Algo de errado aconteceu na hora de cadastro o usuário");
+                echo json_encode(["error","Algo de errado aconteceu na hora do cadastro do usuário"]);
             }
         } catch (PDOException $e) {
             http_response_code(500);
-            echo json_encode('Error', $e->getMessage());
+            echo json_encode(['Error', $e->getMessage()]);
         }
     }
 
@@ -121,7 +126,7 @@ class User{
 
         try {
 
-            include("../database.class.php");
+            include("../../database.class.php");
             $db = new Database();
 
             $conexao = $db->conect_database();
@@ -147,26 +152,27 @@ class User{
 
         try {
 
-            include('../database.class.php');
+            include('../../database.class.php');
 
             $db = new Database();
-
-            $conexao = $db->conect_database();
+            $conexao =$db->conect_database();
 
             $sqlUpdate = "UPDATE users SET full_name=?, entrada=?, cargo=?,senha=? WHERE codUser=?";
-            $conexao->exec("SET NAME utf8");
+            $conexao->exec("SET NAMES utf8");
             $stmtUpdate = $conexao->prepare($sqlUpdate);
             $stmtUpdate->bindParam(1, $this->full_name);
             $stmtUpdate->bindParam(2, $this->entrada);
             $stmtUpdate->bindParam(3, $this->cargo);
             $stmtUpdate->bindParam(4, $this->senha);
-            $stmtUpdate->bindParam(4, $this->codUser);
+            $stmtUpdate->bindParam(5, $this->codUser);
+            
             $result = $stmtUpdate->execute();
-
             if ($result) {
                 http_response_code(200);
-                $this->read();
+                json_encode($result);
             } else {
+                http_response_code(400);
+                echo json_encode(["error",'Algo deu errado!']);
             }
         } catch (PDOException $e) {
             http_response_code(500);
@@ -179,10 +185,10 @@ class User{
 
         try {
 
-            include("../database.class.php");
+            include("../../database.class.php");
             $db = new Database();
             $conexao = $db->conect_database();
-
+        
             $sqlDelete = "DELETE FROM users WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
             $stmtDelete = $conexao->prepare($sqlDelete);
@@ -206,7 +212,7 @@ class User{
 
         try{
 
-            include('../database.class.php');
+            include('../../database.class.php');
             $db=new Database();
             $conexao=$db->conect_database();
 
