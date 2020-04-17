@@ -38,13 +38,13 @@
         public function lista(){
             try{
                 
-                include('../database.class.php');
+                include('../../database.class.php');
 
                 $db=new Database();
                 $conexao=$db->conect_database();
 
                 $sqlLista="SELECT title,texto,`data` FROM noticia";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
 
@@ -61,21 +61,25 @@
 
             try{
 
-                include('../database.class.php');
+                include('../../database.class.php');
 
                 $db=new Database();
                 $conexao=$db->conect_database();
-
+                $conexao->beginTransaction();
                 $sqlCreate="INSERT INTO noticia(?,?,?)";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
+
+                $stmtCreate=$conexao->prepare($sqlCreate);
                 $stmtCreate->bindParam(1,$this->title);
                 $stmtCreate->bindParam(2,$this->texto);
                 $stmtCreate->bindParam(3,$this->data);
                 $result=$stmtCreate->execute();
 
                 if($result){
+                    $conexao->commit();
                     http_response_code(201);
                 }else{
+                    $conexao->rollBack();
                     http_response_code(400);
                     echo json_encode("Error",$e->getMessage());
                 }
@@ -89,13 +93,13 @@
         public function read(){
             try{
 
-                include("../database.class.php");
+                include("../../database.class.php");
                 $db=new Database();
 
                 $conexao=$db->conect_database();
 
                 $sqlRead="SELECT title,texto,`data` FROM noticia WHERE idNoticia=?";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
 
                 $stmtRead=$conexao->prepare($sqlRead);
                 $stmtRead->bindParam(1,$this->idNoticia);
@@ -114,13 +118,13 @@
 
             try{
 
-                include('../database.class.php');
+                include('../../database.class.php');
 
                 $db=new Database();
                 $conexao=$db->conect_database();
 
                 $sqlUpdate="UPDATE noticia SET title=?,texto=?,`data`=? WHERE idNoticia=?";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->title);
                 $stmtUpdate->bindParam(2,$this->texto);
@@ -146,13 +150,13 @@
         public function delete(){
             try{
 
-                include("../database.class.php");
+                include("../../database.class.php");
 
                 $db=new Database();
                 $conexao=$db->conect_database();
 
                 $sqlDelete="DELETE FROM noticia WHERE idNoticia=?";
-                $conexao->exec("SET NAME utf8");
+                $conexao->exec("SET NAMES utf8");
 
                 $stmtDelete=$conexao->prepare($sqlDelete);
                 $stmtDelete->bindParam(1,$this->idNoticia);
