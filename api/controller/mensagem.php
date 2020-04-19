@@ -48,7 +48,6 @@
                     echo "Operação inválida";
                     return;
             }
-
+        }
     }
-
 ?>
