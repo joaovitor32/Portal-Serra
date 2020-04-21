@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href='../../components/footer/footer.css'>
     <link rel='stylesheet' type='text/css' href='../../components/form/styles.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/Modal/Modal.css'>
     <link rel='stylesheet' type='text/css' href='../../components/barra-de-navegacao/barra-de-navegacao.css'>
     <link rel='stylesheet' type='text/css' href='./Index.css'>
     <link rel='stylesheet' type='text/css' href='./Modal.css'>
@@ -17,7 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="background-color:rgba(169,169,169,0.7)">
     <div class="box-login">
         <div class="box-form">
             <img id="img-logo" src="../../components/icons/serra.png" />
@@ -38,15 +39,11 @@
             </form>
         </div>
     </div>
-    <div id="myModal" class="modal">
-
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="modal-content"></p>
-        </div>
-
-    </div>
-    <script type="text/javascript" src="./Modal.js"></script>
+    <!----- Modal ------>
+    <?php
+        require("../../components/Modal/Modal.html")
+    ?>
+    <script type="text/javascript" src="../../components/Modal/Modal.js"></script>
     <script type="text/javascript" src="./Index.js"></script>
 </body>
 

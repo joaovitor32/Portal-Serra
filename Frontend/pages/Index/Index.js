@@ -12,6 +12,7 @@ const submitLogin = async () => {
 
     if (nome.length < 10 || senha.length < 5) {
         errModal("O nome  ou a senha estão inválidos");
+        return;
     }
 
     try {
@@ -29,9 +30,9 @@ const submitLogin = async () => {
         const token=await response.json()
 
         localStorage.setItem("token",token.token)
-    
-       
+        window.location.replace("http://localhost:8080/Frontend/pages/Form/Form.php");
     }catch(err){
-        errModal(err)
+        errModal(err);
+        return;
     }
 }
