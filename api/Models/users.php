@@ -73,11 +73,10 @@ class User{
             $db = new Database();
             $conexao = $db->conect_database();
 
-            $sqlLista = "SELECT codUser, full_name, entrada, cargo FROM users";
+            $sqlLista = "SELECT * FROM users";
             $conexao->exec("SET NAMES utf8");
             $stmtLista = $conexao->prepare($sqlLista);
             $stmtLista->execute();
-
             $users = $stmtLista->fetchALL(PDO::FETCH_ASSOC);
             echo json_encode($users);
         } catch (PDOException $e) {
@@ -218,7 +217,7 @@ class User{
 
             $sqlLogin="SELECT codUser,full_name FROM users WHERE full_name=? AND senha=?";
             $conexao->exec('SET NAMES utf8');
-            $stmtAcesso=$conexao($sqlLogin);
+            $stmtAcesso=$conexao->prepare($sqlLogin);
             $stmtAcesso->bindParam(1,$this->full_name);
             $stmtAcesso->bindParam(2,$this->senha);
             $stmtAcesso->execute();
@@ -226,7 +225,7 @@ class User{
             if($dado!=0){
                 $this->createJWToken($dado);
             }else{
-
+                http_response_code(404);
             }
 
         }catch(PDOException $e){
@@ -249,7 +248,7 @@ class User{
             );
 
             $jwt=JWT::encode($token,$this->key);
-            echo json_encode($jwt);
+            echo json_encode(["token"=>$jwt]);
 
         }catch(PDOException $e){
             

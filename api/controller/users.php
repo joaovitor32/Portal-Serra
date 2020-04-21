@@ -41,6 +41,13 @@ function execute_action($acao,$requestBody,$requestHeaders){
                 $user->update();
                 return;
                 break;
+            case "GRANT_ACCESS":
+                include '../../Models/users.php';
+                $user = new User();
+                $user->setSenha(md5($requestBody->senha));
+                $user->setFull_Name($requestBody->full_name);
+                $user->grantAcess();
+                return;
             case "DELETE_USER":
                 //if ($token->VerificaJWT()) {
                     include '../../Models/users.php';
