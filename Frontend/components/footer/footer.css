@@ -1,18 +1,18 @@
- a,li,ul{
+h4,h5,h5,span,p{
+    font-family:  'Montserrat', sans-serif;
+}
+
+a,li,ul{
     margin:0%;
     padding:0%;
 }
 ul{
     list-style-type: none  
 }
-h4{
-    padding:2% 0%;
-}
-h6{
-    padding:0.5% 0%;
-}
+
 .container{
     margin:1rem auto;
+    height: 15rem;
 }
 footer{
     background: #343a40;
@@ -29,8 +29,8 @@ footer{
 }
 .box-links{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items:flex-start;
     width: 100%;
 }
 .icon{
@@ -38,30 +38,43 @@ footer{
     height: 5%;
 }
 .icon-link{
-    width:90x;
     height: 70px;
     margin:0rem 1rem;
 }
 .icon-link-bottom{
-    width:4rem;
-    height: 4rem;
+    width:2rem;
+    height: 2rem;
     padding:0.5rem 1rem;
 }
 .box{
    flex:1 1 250px;
 }
-.box-informacoes>p>span{
-    padding:1rem;
+.box-informacoes>p{
+    display: flex;
+    text-align: center;
 }
 .container-footer-bottom{
     background-color: #2a2e33;
     bottom:0;
     width: 100%;
 }
+.box-informacoes>p>span{
+    margin-top:1%;
+    margin-left:0.5rem;
+}
 .row-footer-bottom{
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
+   
+    height: 4rem;
+}
+.row-footer-bottom>a:hover{
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transform: translateY(-15%);
 }
 @media only screen and (max-width: 600px) {
     .box {
@@ -71,6 +84,11 @@ footer{
         justify-content: center;
         align-items: center;
     }
+    .container{
+        height: 100%;
+    }
+
   }
+
 
 

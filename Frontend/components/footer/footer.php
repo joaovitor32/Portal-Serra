@@ -1,17 +1,17 @@
 <footer>
     <div class="container">
         <div class="container-row">
-            <div class="box">
+            <div style="margin-left:1rem"  class="box">
                <h4>Emails:</h4>
                <div class="box-emails">
-                    <h6>Presidente: presidente@serrajr.eng.br</h6>
-                    <h6>Operações: operacoes@serrajr.eng.br</h6>
-                    <h6>Comercial: comercial@serrajr.eng.br</h6>
-                    <h6>Mecânica: projetosmecanica@serrajr.eng.br</h6>
-                    <h6>Computação: projetoscomputacao@serrajr.eng.br</h6>
+                    <h5>Presidente: presidente@serrajr.eng.br</h5>
+                    <h5>Operações: operacoes@serrajr.eng.br</h5>
+                    <h5>Comercial: comercial@serrajr.eng.br</h5>
+                    <h5>Mecânica: projetosmecanica@serrajr.eng.br</h5>
+                    <h5>Computação: projetoscomputacao@serrajr.eng.br</h5>
                </div>
             </div>
-            <div class="box">
+            <div style="margin-left:1rem"  class="box">
                 <h4>Links:</h4>
                 <div class="box-links">
                     <a href="https://serrajr.eng.br/" target="_blank"><img class="icon-link" src="../../components/icons/serra.png"  /></a>
@@ -19,7 +19,7 @@
                     <a href="http://www.riojunior.com.br/" target="_blank"><img class="icon-link" src="../../components/icons/brasil_burned.png"  /></a>
                 </div>
             </div>
-            <div class="box">
+            <div style="margin-left:1rem"  class="box">
                 <h4>Informações:</h4>
                 <div class="box-informacoes">
                     <p><img class="icon" src="../../components/icons/home-run.svg"  alt="icon" /><span>Rua Bonfim n°25 - Vila Amelia, Nova Friburgo - RJ, 28625-570</span></p>
