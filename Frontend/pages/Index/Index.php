@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' href='../../components/Modal/Modal.css'>
     <link rel='stylesheet' type='text/css' href='../../components/barra-de-navegacao/barra-de-navegacao.css'>
     <link rel='stylesheet' type='text/css' href='./Index.css'>
-    <link rel='stylesheet' type='text/css' href='./Modal.css'>
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
     <div class="box-login">
         <div class="box-form">
             <img id="img-logo" src="../../components/icons/serra.png" />
-            <form id="form-login" class="form-login">
+            <form id="form-login" class="form-login" onsubmit="submitLogin()">
                 <div id="box-input">
                     <label>
                         <input type="text" placeholder=" " required>
@@ -35,7 +35,7 @@
                         <span>Senha</span>
                     </label>
                 </div>
-                <button onclick="submitLogin()" type="submit" id="login-btn">Login</button>
+                <button type="submit" id="login-btn">Login</button>
             </form>
         </div>
     </div>
