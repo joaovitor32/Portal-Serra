@@ -9,6 +9,7 @@
     <link rel='stylesheet' type='text/css' href='../../components/form/styles.css'>
     <link rel='stylesheet' type='text/css' href='../../components/barra-de-navegacao/barra-de-navegacao.css'>
     <link rel='stylesheet' type='text/css' href='./Index.css'>
+    <link rel='stylesheet' type='text/css' href='./Modal.css'>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -17,15 +18,36 @@
 </head>
 
 <body>
-    <?php
-        require("../../components/form/form.php")
-    ?>
-    <?php    
-        require("../../components/footer/footer.php")
-    ?>
-    <?php
-        require("../../components/barra-de-navegacao/barra-de-navegacao.php")
-    ?>
+    <div class="box-login">
+        <div class="box-form">
+            <img id="img-logo" src="../../components/icons/serra.png" />
+            <form id="form-login" class="form-login">
+                <div id="box-input">
+                    <label>
+                        <input type="text" placeholder=" " required>
+                        <span>Nome</span>
+                    </label>
+                </div>
+                <div id="box-input">
+                    <label>
+                        <input type="password" placeholder=" " required>
+                        <span>Senha</span>
+                    </label>
+                </div>
+                <button onclick="submitLogin()" type="submit" id="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-content"></p>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="./Modal.js"></script>
+    <script type="text/javascript" src="./Index.js"></script>
 </body>
 
 </html>

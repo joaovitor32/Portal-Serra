@@ -1,36 +1,37 @@
-/*"use strict";
-
-const newHeaders = new Headers();
-newHeaders.append("Access-Control-Allow-Origin", "http:*")
-newHeaders.append("Access-Control-Allow-Methods", "GET")
-newHeaders.append("Access-Control-Allow-Headers", "OPTIONS,GET");
-newHeaders.append("Content-Type", "text/html");
-
-const corsGetFile = {
-    method: "GET",
-    headers:newHeaders,
-    mode: 'no-cors',
-    chache: "default",
+const errModal=(err)=>{
+    let modalContent=document.getElementById('modal-content')
+    modal.style.display = "block";
+    modalContent.innerHTML=err;
 }
 
+const submitLogin = async () => {
+    let form = document.getElementById('form-login');
 
-const loadFooter =  () => {
-    const request = new Request(`${config.localhost}/footer/footer.html`, corsGetFile);
-    fetch(`${config.localhost}/footer/footer.html`, corsGetFile)
-        .then(response => {
-            console.log(response)
-            console.log(response.text())
-            return response.text();
+    let nome = form.elements[0].value;
+    let senha = form.elements[1].value;
+
+    if (nome.length < 10 || senha.length < 5) {
+        errModal("O nome  ou a senha estão inválidos");
+    }
+
+    try {
+        const response = await fetch('http://localhost:8080/api/routes/users/grantAcess.php', {
+            method: "POST",
+            body: JSON.stringify({
+                "full_name": nome,
+                "senha": senha
+            }),
+            header: {
+                'Content-Type': "application/json",
+            },
         })
-        .then(data => {
-            let footer = document.getElementById('footer');
-            footer.innerHTML = data;
-        })
+    
+        const token=await response.json()
+
+        localStorage.setItem("token",token.token)
+    
+       
+    }catch(err){
+        errModal(err)
+    }
 }
-
-const loadComponents = () => {
-    loadFooter();
-
-}
-
-document.onload=loadComponents();*/

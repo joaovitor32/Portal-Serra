@@ -1,7 +1,112 @@
-div{
+div {
     width: 100%;
 }
-div,body,p{
-    margin:0;
-    padding:0%;
+
+div, body, p {
+    margin: 0;
+    padding: 0%;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.box-login {
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    padding: 0rem;
+    overflow: hidden;
+    background: #f5f5f5;
+    width: 40%;
+    height: 100%;
+    margin-bottom: 1rem
+}
+
+#img-logo {
+    width: 20rem;
+    height: 16rem;
+    margin-top: 2rem
+}
+
+.box-form {
+    display: inline;
+}
+
+.form-login {
+    margin-bottom: 2rem;
+}
+
+#box-input {
+    font-weight: bold;
+    margin: 0.5rem 0rem;
+}
+
+label {
+    margin: 20px 0;
+    width:80%;
+    position: relative;
+    display: inline-block;
+    color:	rgb(128,128,128)
+}
+
+span {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    font-size: 0.9em;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: #f5f5f5;
+    outline: none;
+    color:rgb(128,128,128);
+    width: 100%;
+}
+
+input:focus+span, input:not(:placeholder-shown)+span {
+    opacity: 1;
+    transform: scale(0.75) translateY(-100%) translateX(0px);
+}
+
+/* For IE Browsers*/
+
+input:focus+span, input:not(:-ms-input-placeholder)+span {
+    opacity: 1;
+    transform: scale(0.75) translateY(-100%) translateX(-30px);
+}
+
+#login-btn {
+    border: transparent;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(254, 103, 0);
+    box-sizing: border-box;
+    color:#f5f5f5;
+    width: 5rem;
+    border-radius:10px;
+    outline:none
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #img-logo {
+        width: 10rem;
+        height: 8rem;
+    }
+    .box-login {
+        width: 80%;
+    }
 }
