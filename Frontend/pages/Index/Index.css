@@ -87,7 +87,10 @@ input:focus+span, input:not(:-ms-input-placeholder)+span {
     opacity: 1;
     transform: scale(0.75) translateY(-100%) translateX(-30px);
 }
-
+.input-error{
+    border-color: red;
+    background-color: rgb(255,0,0,0.7);
+}
 #login-btn {
     border: transparent;
     margin-top: 0.5rem;

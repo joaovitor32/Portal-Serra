@@ -22,20 +22,20 @@
     <div class="box-login">
         <div class="box-form">
             <img id="img-logo" src="../../components/icons/serra.png" />
-            <form id="form-login" class="form-login" onsubmit="submitLogin()">
+            <form id="form-login" class="form-login" onsubmit="submitLogin(event)">
                 <div id="box-input">
                     <label>
-                        <input type="text" placeholder=" " required>
+                        <input type="text" placeholder=" ">
                         <span>Nome</span>
                     </label>
                 </div>
                 <div id="box-input">
                     <label>
-                        <input type="password" placeholder=" " required>
+                        <input type="password" placeholder=" " >
                         <span>Senha</span>
                     </label>
                 </div>
-                <button type="submit" id="login-btn">Login</button>
+                <button  type="submit" id="login-btn">Login</button>
             </form>
         </div>
     </div>
