@@ -1,12 +1,17 @@
 <?php
+
+    //  Criando uma classe para entidade mensagem
     class Mensagem{
 
+
+        //  Criando variáveis para os atributos da tabela mensagem
         private $idMensagem;
         private $mensagem;
         private $texto;
         private $data;
 
-        //Gets
+
+        //  Funções de get
         public function getIdMensagem(){
             return $this->idMensagem;
         }
@@ -20,7 +25,8 @@
             return $this->data;
         }
 
-        //Sets
+
+        //  Funções de sets
         public function setIdMensagem($idMensagem){
             $this->idMensagem=$idMensagem;
         }
@@ -35,27 +41,52 @@
         }
 
 
+
         public function lista(){
             try{
                 
+                //  Define em qual banco de dados está trabalhando
                 include('../../database.class.php');
 
-                $db=new Database();
+
+                //  Cria uma cópia/objeto da classe database, com nome de variável 'db'
+                $db = new Database();
+
+
+                //  Em conexao é armazenado o valor que $db->conect_database()
                 $conexao=$db->conect_database();
 
+                //  Variável string
                 $sqlLista="SELECT mensagem,texto,`data` FROM mensagem";
+
+
+                //  Usa função "exec" já definida no PHP
                 $conexao->exec("SET NAMES utf8");
+
+
+                //  Usa função "prepare" definida no PHP
+                //  Prepara o banco de dados para trabalhar com a string SQl que em seguida será executada
                 $stmtLista=$conexao->prepare($sqlLista);
+
+                //  Usa função "execute" definida no PHP
+                //  Executa o SQL e armazena as linhas retornadas em $stmtlista
                 $stmtLista->execute();
 
+                //  Otimiza a organização dos dados armazenados em $stmtLista e os armazena em $mensagens
                 $mensagens=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
-                echo json_encode($mensagens);
 
+
+                //  Coloca os dados de $mensagens em formato json (adaptável para JavaScript)
+                echo json_encode($mensagens);
+            
+            
+            //  Em caso de erro, retorna uma mensagem
             }catch(PDOExcetpion $e){
                 http_response_code(500);
-                echo json_encode("Error",$e->getMessage());
+                echo json_encode("Error", $e->getMessage());
             }
         }
+
 
         public function create(){
 
