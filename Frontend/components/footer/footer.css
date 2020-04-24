@@ -12,7 +12,7 @@ ul{
 
 .container{
     margin:1rem auto;
-    height: 15rem;
+    height: 100%;
 }
 footer{
     background: #343a40;
@@ -47,26 +47,27 @@ footer{
     padding:0.5rem 1rem;
 }
 .box{
-   flex:1 1 250px;
+   flex:1 1 200px;
+   display: table-row;
+   flex-wrap: wrap;
 }
 .box-informacoes>p{
-    display: flex;
+    margin-top:1rem;
+}
+.box-informacoes>p>span{
+    margin-left:0.5rem;
     text-align: center;
+    align-items: center;
 }
 .container-footer-bottom{
     background-color: #2a2e33;
     bottom:0;
     width: 100%;
 }
-.box-informacoes>p>span{
-    margin-top:1%;
-    margin-left:0.5rem;
-}
 .row-footer-bottom{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-   
     height: 4rem;
 }
 .row-footer-bottom>a:hover{
@@ -89,6 +90,8 @@ footer{
     }
 
   }
+ 
+  
 
 
 
