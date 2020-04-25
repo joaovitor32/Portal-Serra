@@ -154,7 +154,7 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
 
-                $sqlUpdate="UPDATE mensagem SET mensagem=?,texto=?,`data`=? WHERE = idMensagem=?";
+                $sqlUpdate="UPDATE mensagem SET mensagem=?,texto=?,`data`=? WHERE idMensagem=?";
                 $conexao->exec("SET NAMES utf8");
                 $stmtUpdate=$conexao->prepare($sqlUpdate);
                 $stmtUpdate->bindParam(1,$this->mensagem);
