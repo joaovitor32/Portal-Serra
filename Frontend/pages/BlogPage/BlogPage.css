@@ -40,7 +40,7 @@
 }
 #input-search{
     width:18rem;
-    background-color: rgba(238,59,36,0.15);
+    background-color: rgba(238,59,36,0.12);
     border-radius: 10px;
     outline: none;
     border:1px solid #ee3b24;
@@ -73,5 +73,8 @@
         justify-content: center;
         text-align: center;
         align-items: center;
+    }
+    .box-tags-title>p,.box-tags-title>h4{
+        padding:0rem
     }
 }

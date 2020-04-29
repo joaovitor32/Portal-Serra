@@ -5,7 +5,7 @@
     <title>Portal Transparência</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link rel='stylesheet' type='text/css' href='../../components/Modal/Modal.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/UI/Modal/Modal.css'>
     <link rel='stylesheet' type='text/css' href='./BlogPage.css'>
 
 
@@ -30,9 +30,9 @@
     </div>
     <!----- Modal ------>
     <?php
-    require("../../components/Modal/Modal.html")
+    require("../../components/UI/Modal/Modal.html")
     ?>
-    <script type="text/javascript" src="../../components/Modal/Modal.js"></script>
+    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
     <script type="text/javascript" src="./BlogPage.js"></script>
 </body>
 
