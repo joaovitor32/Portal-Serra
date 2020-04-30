@@ -3,7 +3,7 @@
 
     if(!empty($acao)&&!empty($requestHeader)&&!empty($requestBody)){
 
-        switch($requestBody->action){
+        switch($acao){
             case "GET_NOTICIAS":
                 include '../../Models/noticia.php';
                 $noticia=new  Noticia();

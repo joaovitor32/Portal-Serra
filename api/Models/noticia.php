@@ -66,7 +66,7 @@
                 $db=new Database();
                 $conexao=$db->conect_database();
                 $conexao->beginTransaction();
-                $sqlCreate="INSERT INTO noticia(?,?,?)";
+                $sqlCreate="INSERT INTO noticia(title,texto,`data`) VALUES (?,?,?)";
                 $conexao->exec("SET NAMES utf8");
 
                 $stmtCreate=$conexao->prepare($sqlCreate);
@@ -135,7 +135,7 @@
 
                 if($result){
                     http_response_code(200);
-                    $this->read();
+                    //$this->read();
                 }else{
                     http_response_code(500);
                     echo json_encode("Error",$e->getMessage());
