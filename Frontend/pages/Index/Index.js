@@ -9,7 +9,7 @@ const errModal = (err) => {
     modalContent.innerHTML = err;
 }
 
-const checkValidity = () => {
+const checkValidityForm = () => {
 
     let validityNome,validitySenha;
 
@@ -35,7 +35,7 @@ const checkValidity = () => {
 
 const submitLogin = async e => {
     e.preventDefault();
-    if (checkValidity()) {
+    if (checkValidityForm()) {
         try {
             const response = await fetch('http://localhost:8080/api/routes/users/grantAcess.php', {
                 method: "POST",

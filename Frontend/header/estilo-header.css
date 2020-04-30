@@ -1,0 +1,100 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #FF5800;
+}
+
+
+		/*		HEADER		*/
+
+.header-grid{
+	display: grid;
+	grid-template-columns: 15fr 70fr 10fr 5fr;
+	grid-template-rows: 8vh;
+	grid-template-areas: "item-1" "item-2" "item-3" "item-4";
+	background-color: white;
+}
+
+
+		/*		ITEM 1		*/
+.header-item-1{
+	grid-area: "item-1";
+	display: grid;
+}
+
+.link-img-serra-jr-logo{
+	margin: 0;
+	padding: 0;
+	max-width: 60%;
+	max-height: 60%;
+	justify-self: center;
+	align-self: center;
+}
+
+.img-serra-jr-logo{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+		/*		ITEM 2		*/
+.header-item-2{
+	grid-area: "item-2";
+}
+
+
+
+		/*		ITEM 3		*/
+.header-item-3{
+	grid-area: "item-3";
+	display: grid;
+}
+
+.blog-link{
+	justify-self: center;
+	align-self: center;
+	text-decoration: none;
+	color: #0A1334;
+	font-family: 'Nunito', sans-serif;
+	font-size: 1.7vh;
+}
+
+a.blog-link:hover{
+	color: #FF5800;
+}
+
+
+		/*		ITEM 4		*/
+.header-item-4{
+	grid-area: "item-4";
+	display: grid;
+}
+
+.link-img-login{
+	margin: 0;
+	padding: 0;
+	max-width: 30%;
+	max-height: 30%;
+	justify-self: center;
+	align-self: center;
+}
+
+.img-login{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.img-login-hover{
+	display: none;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a.link-img-login:hover .img-login{
+	display: none;
+}
+
+a.link-img-login:hover .img-login-hover{
+	display: inline;
+}

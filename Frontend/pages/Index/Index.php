@@ -5,10 +5,10 @@
     <title>Portal Transparência</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link rel='stylesheet' type='text/css' href='../../components/footer/footer.css'>
-    <link rel='stylesheet' type='text/css' href='../../components/form/styles.css'>
-    <link rel='stylesheet' type='text/css' href='../../components/Modal/Modal.css'>
-    <link rel='stylesheet' type='text/css' href='../../components/barra-de-navegacao/barra-de-navegacao.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/UI/footer/footer.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/UI/form/styles.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/UI/Modal/Modal.css'>
+    <link rel='stylesheet' type='text/css' href='../../components/UI/barra-de-navegacao/barra-de-navegacao.css'>
     <link rel='stylesheet' type='text/css' href='./Index.css'>
 
 
@@ -23,27 +23,29 @@
         <div class="box-form">
             <img id="img-logo" src="../../components/icons/serra.png" />
             <form id="form-login" class="form-login" onsubmit="submitLogin(event)">
-                <div id="box-input">
-                    <label>
-                        <input type="text" placeholder=" ">
-                        <span>Nome</span>
-                    </label>
+                <div class="major-box-input">
+                    <div id="box-input">
+                        <label>
+                            <input type="text" placeholder=" ">
+                            <span>Nome</span>
+                        </label>
+                    </div>
+                    <div id="box-input">
+                        <label>
+                            <input type="password" placeholder=" ">
+                            <span>Senha</span>
+                        </label>
+                    </div>
+                    <button type="submit" id="login-btn">Login</button>
                 </div>
-                <div id="box-input">
-                    <label>
-                        <input type="password" placeholder=" " >
-                        <span>Senha</span>
-                    </label>
-                </div>
-                <button  type="submit" id="login-btn">Login</button>
             </form>
         </div>
     </div>
     <!----- Modal ------>
     <?php
-        require("../../components/Modal/Modal.html")
+    require("../../components/UI/Modal/Modal.html")
     ?>
-    <script type="text/javascript" src="../../components/Modal/Modal.js"></script>
+    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
     <script type="text/javascript" src="./Index.js"></script>
 </body>
 

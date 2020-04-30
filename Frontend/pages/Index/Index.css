@@ -102,6 +102,12 @@ input:focus+span, input:not(:-ms-input-placeholder)+span {
     border-radius:10px;
     outline:none
 }
+.major-box-input{
+    display: table-cell;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
