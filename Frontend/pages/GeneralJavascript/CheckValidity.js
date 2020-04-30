@@ -8,7 +8,7 @@ function shutdown() {
     }, 1000*60*60);
 }
 
-const checkValidity = (token) => {
+const checkValidity = () => {
     if (!token) {
         window.location.replace("http://localhost:8080/Frontend/pages/NonLoggedPage/NoLoggedPage.php");
     } else {
@@ -18,7 +18,6 @@ const checkValidity = (token) => {
     }
 }
 window.onload = () => {
-    const token = localStorage.getItem('token')
     checkValidity(token);
 }
 window.onbeforeunload = () => {

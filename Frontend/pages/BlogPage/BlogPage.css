@@ -1,7 +1,12 @@
 /*--------------------------------------------------------------------*/
 .major-box{
-    background-image: url("../Images/BlogFundo.jpg");
+    background:linear-gradient( rgba(220, 220, 220, 0.4) 100%, rgba(220, 220, 220, 0.5)100%),url("../Images/BlogFundo.jpg");;
     width:100%;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: 0% 45%;
     height: 24rem;
     background-repeat: no-repeat;
     display: flex;
@@ -35,8 +40,7 @@
     text-align: flex-end;
     align-items: flex-end;
     padding:1rem;
-
-    background-color:rgb(220,220,220,0.7);
+;
 }
 #input-search{
     width:18rem;
@@ -76,5 +80,8 @@
     }
     .box-tags-title>p,.box-tags-title>h4{
         padding:0rem
+    }
+    .box-tags-title>p{
+        font-size: 2.25rem;
     }
 }
