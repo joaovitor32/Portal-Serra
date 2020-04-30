@@ -1,0 +1,38 @@
+body{
+    padding: 0;
+    margin:0
+}
+.message-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(220,220,220,0.5);
+    width:100vw;
+    height: 100vh;
+    border: 0;
+}
+.content-box>p{
+    font-size: 2.5em;
+    font-family:  'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(254, 103, 0);
+    text-shadow:1px 0.5px 0.5px black;
+}
+
+.content-box>button{
+    background-color: rgb(254, 103, 0);
+    border:none;
+    color: white;
+    border-radius:10px;
+    font-size:1.2rem;
+    padding:0.5rem 1.5rem;
+    outline:none;
+}
+@media (max-width: 760px) 
+{
+    .content-box>p{
+        font-size: 2em;
+    }
+    
+}
