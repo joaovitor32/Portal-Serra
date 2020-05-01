@@ -8,9 +8,9 @@
     
     <!--Chamando css do Header e fonts aqui-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href='../../components/UI/header/header.css'>
+    <link rel='stylesheet' type='text/css' href='../../../components/UI/header/header.css'>
     
-    <link rel='stylesheet' type='text/css' href='../../components/UI/Modal/Modal.css'>
+    <link rel='stylesheet' type='text/css' href='../../../components/UI/Modal/Modal.css'>
     <link rel='stylesheet' type='text/css' href='./BlogPage.css'>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,11 +21,7 @@
 
 <body style="background-color:rgba(220,220,220,0.3)">
     <?php
-<<<<<<< HEAD
-    require("../../components/UI/header/header.php")
-=======
-    require("../../components/UI/header/header.html")
->>>>>>> 0e845ca00b454b7a40c9b42361d77e2e71212adb
+    require("../../../components/UI/header/header.php");
     ?>
     <div class="major-box">
         <div class="box-tags-title">
@@ -41,9 +37,9 @@
     </div>
     <!----- Modal ------>
     <?php
-    require("../../components/UI/Modal/Modal.html")
+    require("../../../components/UI/Modal/Modal.html")
     ?>
-    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
+    <script type="text/javascript" src="../../../components/UI/Modal/Modal.js"></script>
     <script type="text/javascript" src="./BlogPage.js"></script>
 </body>
 

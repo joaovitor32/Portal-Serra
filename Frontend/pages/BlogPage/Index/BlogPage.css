@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------*/
 .major-box{
-    background:linear-gradient( rgba(220, 220, 220, 0.4) 100%, rgba(220, 220, 220, 0.5)100%),url("../Images/BlogFundo.jpg");;
+    background:linear-gradient( rgba(220, 220, 220, 0.4) 100%, rgba(220, 220, 220, 0.5)100%),url("../../Images/BlogFundo.jpg");;
     width:100%;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -21,7 +21,8 @@
     text-align: center;
 }
 .box-tags-title>p,.box-tags-title>h4{
-    padding:1rem
+    padding:1rem;
+    font-family: 'Nunito', sans-serif;
 }
 .box-tags-title>p{
     color:#ee3b24;
