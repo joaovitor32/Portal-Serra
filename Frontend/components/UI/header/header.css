@@ -93,6 +93,7 @@ html, body{
 
 a.blog-link:hover{
 	color: #FF5800;
+	text-decoration: none;
 }
 
 
