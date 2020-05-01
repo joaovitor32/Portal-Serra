@@ -2,7 +2,6 @@ html, body{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	background-color: #FF5800;
 }
 
 
@@ -10,10 +9,10 @@ html, body{
 
 .header-grid{
 	display: grid;
-	grid-template-columns: 15fr 70fr 10fr 5fr;
+	grid-template-columns: 15fr 50fr 30fr 5fr;
 	grid-template-rows: 8vh;
 	grid-template-areas: "item-1" "item-2" "item-3" "item-4";
-	background-color: white;
+	grid-gap: 2px
 }
 
 
@@ -49,6 +48,24 @@ html, body{
 .header-item-3{
 	grid-area: "item-3";
 	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 8vh;
+	grid-template-areas: "subitem-3-1" "subitem-3-2" "subitem-3-3";
+}
+
+.header-subitem-3-1{
+	grid-area: "subitem-3-1";
+	display: grid;
+}
+
+.header-subitem-3-2{
+	grid-area: "subitem-3-2";
+	display: grid;
+}
+
+.header-subitem-3-3{
+	grid-area: "subitem-3-3";
+	display: grid;
 }
 
 .blog-link{
@@ -57,7 +74,7 @@ html, body{
 	text-decoration: none;
 	color: #0A1334;
 	font-family: 'Nunito', sans-serif;
-	font-size: 1.7vh;
+	font-size: 1rem;
 }
 
 a.blog-link:hover{
@@ -74,8 +91,8 @@ a.blog-link:hover{
 .link-img-login{
 	margin: 0;
 	padding: 0;
-	max-width: 30%;
-	max-height: 30%;
+	max-width: 40%;
+	max-height: 40%;
 	justify-self: center;
 	align-self: center;
 }

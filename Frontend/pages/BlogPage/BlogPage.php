@@ -16,6 +16,9 @@
 </head>
 
 <body style="background-color:rgba(220,220,220,0.3)">
+    <?php
+    require("Frontend/header/header.html")
+    ?>
     <div class="major-box">
         <div class="box-tags-title">
             <p>Bem Vindo ao Blog!</p>
