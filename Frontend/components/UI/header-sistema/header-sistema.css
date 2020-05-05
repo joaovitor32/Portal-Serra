@@ -1,0 +1,94 @@
+a,p{
+    font-family: 'Nunito', sans-serif;
+}
+/*---------------------Navigation Bar--------------------------*/
+.header-grid{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+    position: relative;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+.row1,.row2{
+    padding:0.5rem;
+}
+.row1{
+    display: flex;
+}
+.row2{
+    display: flex;
+    justify-content: flex-end;
+}
+.logo-serra{
+    margin-top:0%;
+    width: 8rem;
+    height: 2rem;
+}
+.logo-menu{
+    width: 2.5rem;
+    height: 2rem;
+}
+#menu-btn{
+    width: 3rem;
+    height: 1.75rem;
+}
+/*-------------------------Drawer---------------------------------*/
+.sidenav {
+    margin-top:4rem;
+    height: 25rem;
+    height: 30rem;
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #FF6600; 
+    overflow-x: hidden;
+    padding-top: 6rem;  
+    transition: 0.5s;  
+  }
+  
+  .sidenav a {
+    padding: 1rem 1rem 1rem 4rem;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  
+  .sidenav a:hover {
+    color:#FF6600 ;
+    background-color:#2a2e33;
+    transition: 0.5s;  
+
+  }
+  
+  
+  .sidenav .closebtn {
+    position: absolute;
+    background-color: transparent;
+    border:none;
+    color:white;
+    outline:none;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
