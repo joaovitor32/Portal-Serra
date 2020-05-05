@@ -5,6 +5,7 @@ div {
 div, body, p {
     margin: 0;
     padding: 0%;
+
 }
 #box-loading-spinner{
     width: 100vw;
@@ -13,4 +14,31 @@ div, body, p {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+/*--------------------Body component---------------------------*/
+.middle-component{
+    display: flex;
+    justify-self:center;
+    align-items: center;
+    text-align: center;
+}
+#box-content{
+    width:100%;
+    height: 100%;
+}
+#content{
+    margin-top:5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#content>p{
+    color:#FF6600;
+    font-size: 4rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+#content>strong{
+    font-size: 1.5rem;
+    font-family: 'Nunito', sans-serif;
 }

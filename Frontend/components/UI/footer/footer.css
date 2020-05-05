@@ -15,6 +15,9 @@ ul{
     height: 100%;
 }
 footer{
+    bottom: 0;
+    margin:0;
+    position: fixed;
     background: #343a40;
     color:#F5F5F5;   
     left:0;
@@ -88,7 +91,9 @@ footer{
     .container{
         height: 100%;
     }
-
+    footer{
+        position: relative;
+    }
   }
  
   

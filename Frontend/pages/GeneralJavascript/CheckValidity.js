@@ -2,10 +2,10 @@ const boxContentSpinner = document.getElementById('box-loading-spinner')
 const boxContent = document.getElementById('box-content')
 
 function shutdown() {
-    setInterval(()=>{
+    setTimeout(()=>{
         localStorage.removeItem('token');
         window.location.replace("http://localhost:8080/Frontend/pages/Index/Index.php");
-    }, 1000*60*60);
+    }, 1000*60*10);
 }
 
 const checkValidity = () => {

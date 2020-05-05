@@ -3,12 +3,6 @@ let form = document.getElementById('form-login');
 let nome = form.elements[0];
 let senha = form.elements[1];
 
-const errModal = (err) => {
-    let modalContent = document.getElementById('modal-content')
-    modal.style.display = "block";
-    modalContent.innerHTML = err;
-}
-
 const checkValidityForm = () => {
 
     let validityNome,validitySenha;
