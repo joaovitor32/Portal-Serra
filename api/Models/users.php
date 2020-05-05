@@ -2,7 +2,7 @@
 
 require __DIR__ . '../../vendor/autoload.php';
 use Firebase\JWT\JWT;
-
+require("key.php");
 class User{
 
     private $codUser;
@@ -187,7 +187,7 @@ class User{
             include("../../database.class.php");
             $db = new Database();
             $conexao = $db->conect_database();
-        
+            
             $sqlDelete = "DELETE FROM users WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
             $stmtDelete = $conexao->prepare($sqlDelete);
@@ -211,10 +211,9 @@ class User{
 
         try{
 
-            include('../../database.class.php');
-            $db=new Database();
-            $conexao=$db->conect_database();
-
+            include("../../database.class.php");
+            $db = new Database();
+            $conexao = $db->conect_database();
             $sqlLogin="SELECT codUser,full_name FROM users WHERE full_name=? AND senha=?";
             $conexao->exec('SET NAMES utf8');
             $stmtAcesso=$conexao->prepare($sqlLogin);
@@ -247,7 +246,7 @@ class User{
                 "espires"=>3600
             );
 
-            $jwt=JWT::encode($token,$this->key);
+            $jwt = JWT::encode($token,key);
             echo json_encode(["token"=>$jwt]);
 
         }catch(PDOException $e){

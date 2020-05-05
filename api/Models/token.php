@@ -26,7 +26,7 @@
             return $this->tokenDecoded;
         }
 
-        private function setToken($token){
+        public function setToken($token){
             $this->token=$token;
         }
 
@@ -43,23 +43,22 @@
         }
 
         public function VerificaJWT(){
-
             try{
-                $this->setToken(explode(" ",$this->token['authorization']));
-                $this->setTokenDecoded(JWT::Decode($this->token[1],key,array('HS256')));
+                
+                $token=explode(" ",$this->token["authorization"]);
+                $this->tokenDecoded=JWT::decode($token[1],key,array('HS256'));
                 if($this->tokenDecoded){
                     $this->setLogin($this->tokenDecoded->login);
                     $this->setCodUser($this->tokenDecoded->codUser);
                     return true;
                 }else{
+                    return false;
                     http_response_code(401);
-                    echo json_encode("erro","Chave de registro inválida");
                 }
-
+                
             }catch(PDOException $e){
                 http_response_code(500);
-                echo json_encode('error',$e->getMessage());
-
+                echo "Erro: ".$e->getMessage();
             }
 
         }
