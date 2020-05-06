@@ -10,6 +10,7 @@ class User{
     private $entrada;
     private $cargo;
     private $senha;
+    private $email;
     private $idResposta;
     private $key;
 
@@ -28,6 +29,10 @@ class User{
     public function getCargo()
     {
         return $this->cargo;
+    }
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     public function getKey(){
@@ -61,6 +66,9 @@ class User{
 
     public function setKey($key){
         $this->key=$key;
+    }
+    public function setEmail($email){
+        $this->email=$email;
     }
 
     public function  lista()
@@ -96,13 +104,14 @@ class User{
             $conexao =$db->conect_database();
             $conexao->beginTransaction();
 
-            $sqlCreate = "INSERT INTO users(full_name,entrada,cargo,senha) VALUES (?,?,?,?)";
+            $sqlCreate = "INSERT INTO users(full_name,entrada,cargo,senha,email) VALUES (?,?,?,?,?)";
             $conexao->exec('SET NAMES utf8');
             $stmtCreate=$conexao->prepare($sqlCreate);
             $stmtCreate->bindParam(1, $this->full_name);
             $stmtCreate->bindParam(2, $this->entrada);
             $stmtCreate->bindParam(3, $this->cargo);
             $stmtCreate->bindParam(4, $this->senha);
+            $stmtCreate->bindParam(5, $this->email);
             $result = $stmtCreate->execute();
 
             if ($result) {
@@ -130,7 +139,7 @@ class User{
 
             $conexao = $db->conect_database();
 
-            $sqlRead = "SELECT full_name, entrada, cargo FROM users WHERE codUser=?";
+            $sqlRead = "SELECT full_name, entrada, cargo,email FROM users WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
 
             $stmtRead = $conexao->prepare($sqlRead);
@@ -156,14 +165,15 @@ class User{
             $db = new Database();
             $conexao =$db->conect_database();
 
-            $sqlUpdate = "UPDATE users SET full_name=?, entrada=?, cargo=?,senha=? WHERE codUser=?";
+            $sqlUpdate = "UPDATE users SET full_name=?, entrada=?, cargo=?,senha=?,email=? WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
             $stmtUpdate = $conexao->prepare($sqlUpdate);
             $stmtUpdate->bindParam(1, $this->full_name);
             $stmtUpdate->bindParam(2, $this->entrada);
             $stmtUpdate->bindParam(3, $this->cargo);
             $stmtUpdate->bindParam(4, $this->senha);
-            $stmtUpdate->bindParam(5, $this->codUser);
+            $stmtUpdate->bindParam(5, $this->email);
+            $stmtUpdate->bindParam(6, $this->codUser);
             
             $result = $stmtUpdate->execute();
             if ($result) {
