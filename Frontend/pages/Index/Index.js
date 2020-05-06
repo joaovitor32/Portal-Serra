@@ -7,7 +7,7 @@ const checkValidityForm = () => {
 
     let validityNome,validitySenha;
 
-    if (nome.value.length < 10) {      
+    if (nome.value.length < 5) {      
         errModal("O nome está inválido");
         nome.classList.add('input-error');
         validityNome= false;
@@ -37,7 +37,7 @@ const submitLogin = async e => {
                     "full_name": nome.value,
                     "senha": senha.value
                 }),
-                header: {
+                headers: {
                     'Content-Type': "application/json",
                 },
             })
