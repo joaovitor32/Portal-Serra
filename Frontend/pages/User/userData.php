@@ -23,9 +23,9 @@
         require("../../components/UI/header-sistema/header-sistema.php")
         ?>
         <div id="full-wrapper">
-            <div  id="content-user">
-                <div class="section" >
-                    <img id="logo-user-content" src="../../components/icons/men.svg" />
+            <div id="content-user">
+                <div class="section">
+                    <img id="logo-user" src="../../components/icons/men.svg" />
                     <div class="user-data">
                         <p>Nome:</p>
                         <p id="name"></p>
@@ -35,22 +35,72 @@
                         <p id="entrada"></p>
                     </div>
                     <div class="user-data">
+                        <p>Email:</p>
+                        <p id="email"></p>
+                    </div>
+                    <div class="user-data">
                         <p>Cargo:</p>
                         <p id="cargo"></p>
                     </div>
                 </div>
                 <div class="section" id="update-user">
-                    update-user
+                    <img id="logo-user" src="../../components/icons/update.svg" />
+                    <form id="form-update" onsubmit="updateUser(event)">
+                        <div class="user-data">
+                            <p>Nome:</p>
+                            <input name="full_name" class="input-normal" type="text" />
+                        </div>
+                        <div class="user-data">
+                            <p>Entrada:</p>
+                            <input name="entrada" class="input-normal" type="date" />
+                        </div>
+                        <div class="user-data">
+                            <p>Cargo:</p>
+                            <input name="cargo" class="input-normal" type="text" />
+                        </div>
+                        <div class="user-data">
+                            <p>Email:</p>
+                            <input name="email" class="input-normal" type="text" />
+                        </div>
+                        <div class="user-data">
+                            <p>Senha:</p>
+                            <input name="senha" class="input-normal" type="password" />
+                        </div>
+                        <button class="button-form" type="submit">Update</button>
+                    </form>
                 </div>
                 <div class="section" id="new-user">
-                    new user
+                    <img id="logo-user" src="../../components/icons/new2.svg" />
+                    <form id="form-cad-user" onsubmit="newUser(event)">
+                        <div class="user-data">
+                            <p>Nome:</p>
+                            <input name="full_name" class="input-normal" type="text" />
+                        </div>
+                        <div class="user-data">
+                            <p>Entrada:</p>
+                            <input name="entrada" class="input-normal" type="date" />
+                        </div>
+                        <div class="user-data">
+                            <p>Cargo:</p>
+                            <input name="cargo" class="input-normal" type="text" />
+                        </div>
+                        <div class="user-data">
+                            <p>Email:</p>
+                            <input name="email" class="input-normal" type="text" />
+                        </div>
+                        <div class="user-data">
+                            <p>Senha:</p>
+                            <input name="senha" class="input-normal" type="password" />
+                        </div>
+                        <button class="button-form" type="submit">Novo</button>
+                    </form>
                 </div>
             </div>
             <div id="box-actions">
                 <div id="wrapper-actions">
-                    <img onclick="display(0)" src="../../components/icons/exchanging.svg" />
-                    <img onclick="display(1)" src="../../components/icons/new.svg" />
-                    <img onclick="display(2)" src="../../components/icons/eye.svg" />
+                    <img onclick="display(0)" src="../../components/icons/eye.svg" />
+                    <img onclick="display(1)" src="../../components/icons/exchanging.svg" />
+                    <img onclick="display(2)" src="../../components/icons/new.svg" />
                 </div>
             </div>
         </div>
@@ -61,11 +111,11 @@
         <?php
         require("../../components/UI/Modal/Modal.html")
         ?>
-        <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
         <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
+        <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
         <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
-        <script type="text/javascript" src="./userData.js"></script>
         <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
+        <script type="text/javascript" src="./userData.js"></script>
 </body>
 
 </html>
