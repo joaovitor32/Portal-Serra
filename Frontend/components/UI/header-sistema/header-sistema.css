@@ -8,7 +8,7 @@ a,p{
     justify-content: space-around;
     align-items: center;
     height: auto;
-    width: 100vw;
+    width: auto;
     position: relative;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
     z-index: 2;

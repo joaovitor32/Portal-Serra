@@ -1,4 +1,12 @@
 /*--------------https://www.w3schools.com/w3css/w3css_modal.asp-----------------*/
+#box-loading-spinner{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .modal {
   display: none; 
   position: fixed; 

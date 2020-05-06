@@ -8,19 +8,19 @@ function shutdown() {
     }, 1000*60*10);
 }
 
-const checkValidity = () => {
-    if (!token) {
+const checkValidity = (tok) => {
+    if (!tok) {
         window.location.replace("http://localhost:8080/Frontend/pages/NonLoggedPage/NoLoggedPage.php");
     } else {
-        boxContent.style.display = "inline"
         boxContentSpinner.style.display = "none";
+        boxContent.style.display = "inline";
         shutdown();
     }
 }
-window.onload = () => {
-    checkValidity(token);
-}
-window.onbeforeunload = () => {
+window.addEventListener("beforeunload",()=> {
     boxContent.style.display = "none"
     boxContentSpinner.innerHTML = loadingSpinner;
-}
+});
+document.addEventListener('DOMContentLoaded',()=> {
+    checkValidity(token);
+ })
