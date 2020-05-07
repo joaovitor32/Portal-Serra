@@ -39,6 +39,10 @@
                         <p id="email"></p>
                     </div>
                     <div class="user-data">
+                        <p>Telefone:</p>
+                        <p id="telefone"></p>
+                    </div>
+                    <div class="user-data">
                         <p>Cargo:</p>
                         <p id="cargo"></p>
                     </div>
@@ -60,7 +64,11 @@
                         </div>
                         <div class="user-data">
                             <p>Email:</p>
-                            <input name="email" class="input-normal" type="text" />
+                            <input name="email" class="input-normal" type="email" />
+                        </div>
+                        <div class="user-data">
+                            <p>Telefone:</p>
+                            <input  onkeypress="mask(this, mphone);" name="telefone" class="input-normal" type="text" />
                         </div>
                         <div class="user-data">
                             <p>Senha:</p>
@@ -86,7 +94,11 @@
                         </div>
                         <div class="user-data">
                             <p>Email:</p>
-                            <input name="email" class="input-normal" type="text" />
+                            <input name="email" class="input-normal" type="email" />
+                        </div>
+                        <div class="user-data">
+                            <p>Telefone:</p>
+                            <input onkeypress="mask(this, mphone);" name="telefone" class="input-normal" type="text" />
                         </div>
                         <div class="user-data">
                             <p>Senha:</p>
@@ -104,6 +116,7 @@
                 </div>
             </div>
         </div>
+        <a href="./userList.php"><img id="list-bottom" src="../../components/icons/list.svg" /></a>
         <?php
         require("../../components/UI/footer/footer.php")
         ?>

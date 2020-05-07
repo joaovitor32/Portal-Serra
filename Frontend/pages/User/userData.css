@@ -47,6 +47,7 @@ div, body, p {
     border:none;
     border-radius: 10px;
     outline:none;
+    font-family: 'Nunito', sans-serif;
 }
 #logo-user{
     margin-bottom:1rem;
@@ -99,10 +100,24 @@ div, body, p {
     color:white;
     background-color: rgb(255,0,0,0.7);
 }
+#list-bottom{
+    position: absolute;
+    width:2.5rem;
+    height: 2.5rem;
+    top:4rem;
+    right: 1rem;
+}
 /*----------------Responsividade--------------*/
 @media only screen and (max-width: 768px) {
+    #content-user{
+        margin-top:5rem;
+    }
     .section,#wrapper-actions{
         width: 80%;
+    }
+    #list-bottom{
+        top:4rem;
+        right: 1.5rem;
     }
 }
  
