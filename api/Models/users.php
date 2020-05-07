@@ -11,6 +11,7 @@ class User{
     private $cargo;
     private $senha;
     private $email;
+    private $telefone;
     private $idResposta;
     private $key;
 
@@ -33,6 +34,10 @@ class User{
     public function getEmail()
     {
         return $this->email;
+    }
+    public function getTelefone()
+    {
+        return $this->telefone;
     }
 
     public function getKey(){
@@ -66,6 +71,9 @@ class User{
 
     public function setKey($key){
         $this->key=$key;
+    }
+    public function setTelefone($telefone){
+        $this->telefone=$telefone;
     }
     public function setEmail($email){
         $this->email=$email;
@@ -104,7 +112,7 @@ class User{
             $conexao =$db->conect_database();
             $conexao->beginTransaction();
 
-            $sqlCreate = "INSERT INTO users(full_name,entrada,cargo,senha,email) VALUES (?,?,?,?,?)";
+            $sqlCreate = "INSERT INTO users(full_name,entrada,cargo,senha,email,telefone) VALUES (?,?,?,?,?,?)";
             $conexao->exec('SET NAMES utf8');
             $stmtCreate=$conexao->prepare($sqlCreate);
             $stmtCreate->bindParam(1, $this->full_name);
@@ -112,6 +120,7 @@ class User{
             $stmtCreate->bindParam(3, $this->cargo);
             $stmtCreate->bindParam(4, $this->senha);
             $stmtCreate->bindParam(5, $this->email);
+            $stmtCreate->bindParam(6, $this->telefone);
             $result = $stmtCreate->execute();
 
             if ($result) {
@@ -139,7 +148,7 @@ class User{
 
             $conexao = $db->conect_database();
 
-            $sqlRead = "SELECT full_name, entrada, cargo,email FROM users WHERE codUser=?";
+            $sqlRead = "SELECT full_name, entrada, cargo,email,telefone FROM users WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
 
             $stmtRead = $conexao->prepare($sqlRead);
@@ -165,7 +174,7 @@ class User{
             $db = new Database();
             $conexao =$db->conect_database();
 
-            $sqlUpdate = "UPDATE users SET full_name=?, entrada=?, cargo=?,senha=?,email=? WHERE codUser=?";
+            $sqlUpdate = "UPDATE users SET full_name=?, entrada=?, cargo=?,senha=?,email=?,telefone=? WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
             $stmtUpdate = $conexao->prepare($sqlUpdate);
             $stmtUpdate->bindParam(1, $this->full_name);
@@ -173,7 +182,8 @@ class User{
             $stmtUpdate->bindParam(3, $this->cargo);
             $stmtUpdate->bindParam(4, $this->senha);
             $stmtUpdate->bindParam(5, $this->email);
-            $stmtUpdate->bindParam(6, $this->codUser);
+            $stmtUpdate->bindParam(6, $this->telefone);
+            $stmtUpdate->bindParam(7, $this->codUser);
             
             $result = $stmtUpdate->execute();
             if ($result) {

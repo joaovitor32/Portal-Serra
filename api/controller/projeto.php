@@ -10,7 +10,7 @@ function execute_action($acao,$requestBody,$requestHeader){
 					$projeto->lista();
 					return;
 				break;
-				case "CREATE_PROJETO":
+				case "CREATE_PROJETOS":
 					include '../../Models/projeto.php';
 					$projeto=new Projeto();
 					$projeto->setTitulo($requestBody->titulo);
@@ -36,7 +36,7 @@ function execute_action($acao,$requestBody,$requestHeader){
 					$projeto->update();
 					return;
 				break;
-				case "DELETE_PROJETO":
+				case "DELETE_RESPOSTA":
 					include '../../Models/projeto.php';
 					$projeto=new Projeto();
 					$projeto->setIdProjeto($requestBody->idProjeto);

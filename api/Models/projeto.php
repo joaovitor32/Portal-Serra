@@ -11,7 +11,7 @@
 			return $this->idProjeto;
 		}
 		public function getTitulo(){
-			return $this->titulo;
+			return $this->titulo
 		}
 		public function getDescricao(){
 			return $this->descricao;
@@ -127,7 +127,6 @@
 				$stmtUpdate->bindParam(1,$this->titulo);
 				$stmtUpdate->bindParam(2,$this->descricao);
 				$stmtUpdate->bindParam(3,$this->foto);
-				$stmtUpdate->bindParam(4,$this->idProjeto);
 
 				$result=$stmtUpdate->execute();
 

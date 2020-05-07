@@ -15,6 +15,7 @@ function execute_action($acao, $requestBody, $requestHeaders)
                     $user->setCargo($requestBody->cargo);
                     $user->setSenha(md5($requestBody->senha));
                     $user->setEntrada($requestBody->entrada);
+                    $user->setTelefone($requestBody->telefone);
                     $user->setEmail($requestBody->email);
                     $user->create();
                     return;
@@ -44,6 +45,7 @@ function execute_action($acao, $requestBody, $requestHeaders)
                     $user->setFull_Name($requestBody->full_name);
                     $user->setCargo($requestBody->cargo);
                     $user->setEntrada($requestBody->entrada);
+                    $user->setTelefone($requestBody->telefone);
                     $user->setEmail($requestBody->email);
                     $user->update();
                     return;
