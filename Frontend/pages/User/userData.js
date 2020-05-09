@@ -73,11 +73,6 @@ const updateUser = async e => {
     }
 }
 
-const exit = () => {
-    boxContent.style.display = "none"
-    boxContentSpinner.innerHTML = loadingSpinner;
-}
-
 
 const newUser = async e => {
     e.preventDefault();
