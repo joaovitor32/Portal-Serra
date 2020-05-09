@@ -25,7 +25,7 @@ const putUsers = (users) => {
 
 const deleteUser = async (codUser) => {
     try {
-        await fetch(url + "users/delete.php", {
+        const response=await fetch(url + "users/delete.php", {
             method: 'DELETE',
             body: JSON.stringify(
                 { 'codUser': codUser }
@@ -34,6 +34,9 @@ const deleteUser = async (codUser) => {
                 authorization: `Bearer ${token}`,
             }
         })
+        if(!response.ok){
+            errModal("Verifique se este usuário tem mensagens associadas");
+        }
         fetchUsers();
     } catch (err) {
         errModal(err);

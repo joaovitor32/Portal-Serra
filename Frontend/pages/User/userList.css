@@ -7,6 +7,9 @@ div, body, p {
   padding: 0%;
 }
 
+h2,p{
+  font-family: 'Nunito', sans-serif;
+}
 /*-------------------Boxes------------------*/
 
 #box-cursos-item {
@@ -21,27 +24,31 @@ div, body, p {
 
 /*-----------------Card-------------------*/
 #logo-can{
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   padding:1rem;
 }
 
 .card {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #FFF;
+  background-color: rgba(0,21,43,0.85);
   position: relative;
   width: 22rem;
   height: auto;
   margin: 1rem 2rem;
   border-radius: 1rem;
 }
-
+.header>h2,.content>p{
+  font-family: 'Nunito', sans-serif;
+  color:rgba(255, 102,0,0.95);
+  padding:0.25rem
+}
 .card:hover {
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19), 0 12px 12px rgba(0, 0, 0, 0.23);
 }
 
 .card>.card-inner {
