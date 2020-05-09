@@ -68,7 +68,7 @@
                         </div>
                         <div class="user-data">
                             <p>Telefone:</p>
-                            <input  onkeypress="mask(this, mphone);" name="telefone" class="input-normal" type="text" />
+                            <input onkeypress="mask(this, mphone);" name="telefone" class="input-normal" type="text" />
                         </div>
                         <div class="user-data">
                             <p>Senha:</p>
@@ -116,19 +116,21 @@
                 </div>
             </div>
         </div>
-        <a href="./userList.php"><img id="list-bottom" src="../../components/icons/list.svg" /></a>
-        <?php
-        require("../../components/UI/footer/footer.php")
-        ?>
+    </div>
+    <?php
+    require("../../components/UI/footer/footer.php")
+    ?>
+    <a href="./userList.php"><img id="list-button" src="../../components/icons/list.svg" /></a>
 
-        <?php
-        require("../../components/UI/Modal/Modal.html")
-        ?>
-        <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
-        <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
-        <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
-        <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
-        <script type="text/javascript" src="./userData.js"></script>
+    <?php
+    require("../../components/UI/Modal/Modal.html")
+    ?>
+    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
+    <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
+    <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
+    <script type="text/javascript" src="../GeneralJavascript/FormFunctions.js"></script>
+    <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
+    <script type="text/javascript" src="./userData.js"></script>
 </body>
 
 </html>

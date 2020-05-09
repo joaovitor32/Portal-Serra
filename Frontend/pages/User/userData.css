@@ -100,7 +100,7 @@ div, body, p {
     color:white;
     background-color: rgb(255,0,0,0.7);
 }
-#list-bottom{
+#list-button{
     position: absolute;
     width:2.5rem;
     height: 2.5rem;
