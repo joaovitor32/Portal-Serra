@@ -148,7 +148,7 @@ class User{
 
             $conexao = $db->conect_database();
 
-            $sqlRead = "SELECT full_name, entrada, cargo,email,telefone FROM users WHERE codUser=?";
+            $sqlRead = "SELECT full_name,codUser, entrada, cargo,email,telefone FROM users WHERE codUser=?";
             $conexao->exec("SET NAMES utf8");
 
             $stmtRead = $conexao->prepare($sqlRead);

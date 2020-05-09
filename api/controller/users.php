@@ -22,10 +22,12 @@ function execute_action($acao, $requestBody, $requestHeaders)
                 }
                 break;
             case "GET_USERS":
-                include "../../Models/users.php";
-                $user = new User();
-                $user->lista();
-                return;
+                if ($token->VerificaJWT()) {
+                    include "../../Models/users.php";
+                    $user = new User();
+                    $user->lista();
+                    return;
+                }
                 break;
             case "GET_USER":
                 if ($token->VerificaJWT()) {
@@ -59,13 +61,13 @@ function execute_action($acao, $requestBody, $requestHeaders)
                 $user->grantAcess();
                 return;
             case "DELETE_USER":
-                //if ($token->VerificaJWT()) {
-                include '../../Models/users.php';
-                $user = new User();
-                $user->setCodUser($requestBody->codUser);
-                $user->delete();
-                return;
-                //}
+                if ($token->VerificaJWT()) {
+                    include '../../Models/users.php';
+                    $user = new User();
+                    $user->setCodUser($requestBody->codUser);
+                    $user->delete();
+                    return;
+                }
                 break;
             default:
                 http_response_code(400);
