@@ -1,13 +1,17 @@
-var modal = document.getElementById("myModal");
+var modalBox = document.getElementById("myModal");
+let modalContent = document.getElementById('modal-content')
 
 const errModal = (err) => {
-  let modalContent = document.getElementById('modal-content')
-  modal.style.display = "block";
+  modalBox.style.display = "block";
   modalContent.innerHTML = err;
 }
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+const close = () => {
+  modalBox.style.display = "none";
+}
+
+window.onclick = function (event) {
+  if (event.target == modalBox) {
+    close()
   }
 }
