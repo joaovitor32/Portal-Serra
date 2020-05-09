@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='../../components/UI/footer/footer.css'>
     <link rel='stylesheet' type='text/css' href='../../components/UI/header-sistema/header-sistema.css'>
-    <!--<link rel='stylesheet' type='text/css' href='../../components/UI/form/styles.css'>--->
-    <!---<link rel='stylesheet' type='text/css' href='../../components/UI/barra-de-navegacao/barra-de-navegacao.css'>-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='./userList.css'>
 </head>
@@ -22,19 +20,23 @@
         <?php
         require("../../components/UI/header-sistema/header-sistema.php")
         ?>
-  
+        <div id="box-cursos-item">
+            <?php
+            require("../../components/UI/footer/footer.php")
+            ?>
+        </div>
         <?php
         require("../../components/UI/footer/footer.php")
         ?>
-
         <?php
         require("../../components/UI/Modal/Modal.html")
         ?>
-        <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
-        <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
-        <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
-        <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
-        <script type="text/javascript" src="./userList.js"></script>
+    </div>
+    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
+    <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
+    <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
+    <script type="text/javascript" src="./userList.js"></script>
+    <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
 </body>
 
 </html>
