@@ -11,7 +11,7 @@
     <link rel='stylesheet' type='text/css' href='../../components/UI/header-sistema/header-sistema.css'>
     <link rel='stylesheet' type='text/css' href='./userList.css'>
     <link rel='stylesheet' type='text/css' href='../../components/UI/Modal/Modal.css'>
-    
+
 </head>
 
 <body style="background-color:rgba(169,169,169,0.7)">
@@ -20,6 +20,11 @@
         <?php
         require("../../components/UI/header-sistema/header-sistema.php")
         ?>
+        <div id="box-input">
+            <form autocomplete="off">
+                <label>Usuário a ser procurado: </label><input onkeyup="searchName(event)" >
+            </form>
+        </div>
         <div id="box-cursos-item">
 
         </div>

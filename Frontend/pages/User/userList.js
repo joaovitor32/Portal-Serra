@@ -1,31 +1,53 @@
 let field = document.getElementById('box-cursos-item')
 let codUserLog = localStorage.getItem('codUser')
 
+let usersArray = []
+
+const searchName = event => {
+    let filteredArray = usersArray.filter(element =>
+        element.full_name.toLowerCase().includes(event.target.value) ||
+        element.telefone.includes(event.target.value) ||
+        element.email.includes(event.target.value)||
+        element.full_name.includes(event.target.value)
+    );
+    putUsers(filteredArray)
+}
+
+const storeUsers = (array) => {
+    array.forEach(element => {
+        usersArray.push(element);
+    })
+}
+
 const putUsers = (users) => {
     let htmlUsers = "";
-    users.forEach(user => {
-        if (user.codUser != codUserLog) {
-            htmlUsers += "<div class='card'>";
-            htmlUsers += '<div class="card-inner">';
-            htmlUsers += '<div class="header">';
-            htmlUsers += `<h2>Nome: ${user.full_name}</h2>`;
-            htmlUsers += '</div>';
-            htmlUsers += '<div class="content">';
-            htmlUsers += `<p>Telefone: ${user.telefone}</p>`;
-            htmlUsers += `<p>Cargo: ${user.cargo}</p>`;
-            htmlUsers += `<p>Email: ${user.email}</p>`;
-            htmlUsers += `<p>Entrada: ${user.entrada}</p>`;
-            htmlUsers += `<img id="logo-can" onclick="deleteUser(${user.codUser})" src="../../components/icons/can.svg" />`;
-            htmlUsers += '</div></div></div>';
-        }
+    if (users.length == 0) {
+        htmlUsers="<div id='emptyArray'><p>Nenhum membro encontrado</p></div>"
+    } else {
+        users.forEach(user => {
+            if (user.codUser != codUserLog) {
+                htmlUsers += "<div class='card'>";
+                htmlUsers += '<div class="card-inner">';
+                htmlUsers += '<div class="header">';
+                htmlUsers += `<h2>Nome: ${user.full_name}</h2>`;
+                htmlUsers += '</div>';
+                htmlUsers += '<div class="content">';
+                htmlUsers += `<p>Telefone: ${user.telefone}</p>`;
+                htmlUsers += `<p>Cargo: ${user.cargo}</p>`;
+                htmlUsers += `<p>Email: ${user.email}</p>`;
+                htmlUsers += `<p>Entrada: ${user.entrada}</p>`;
+                htmlUsers += `<img id="logo-can" onclick="deleteUser(${user.codUser})" src="../../components/icons/can.svg" />`;
+                htmlUsers += '</div></div></div>';
+            }
 
-    });
+        });
+    }
     field.innerHTML = htmlUsers;
 }
 
 const deleteUser = async (codUser) => {
     try {
-        const response=await fetch(url + "users/delete.php", {
+        const response = await fetch(url + "users/delete.php", {
             method: 'DELETE',
             body: JSON.stringify(
                 { 'codUser': codUser }
@@ -34,7 +56,7 @@ const deleteUser = async (codUser) => {
                 authorization: `Bearer ${token}`,
             }
         })
-        if(!response.ok){
+        if (!response.ok) {
             errModal("Verifique se este usuário tem mensagens associadas");
         }
         fetchUsers();
@@ -55,6 +77,7 @@ const fetchUsers = async () => {
             }
         })
         const users = await response.json();
+        storeUsers(users);
         putUsers(users);
         deactivateLoader()
     } catch (err) {
