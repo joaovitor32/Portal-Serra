@@ -18,6 +18,7 @@ h2,p,label{
   align-items: center;
   padding:1rem 0.5rem 0.5rem 0.5rem;
   width: 95%;
+
 }
 #box-input>form>label{
   font-size:1.1em;
@@ -46,6 +47,7 @@ h2,p,label{
   text-align: center;
 }
 
+
 /*-----------------Card-------------------*/
 #logo-can{
   width: 2rem;
@@ -65,11 +67,37 @@ h2,p,label{
   height: auto;
   margin: 1rem 2rem;
   border-radius: 1rem;
+  animation: fade-in 0.5s ease-in forwards;
+  opacity: 0;
+
 }
+/*
+  Implementação via javascript pra contemplar cada card
+  ->.card:nth-child(1) { animation-delay: 0.2s; }
+  ->Card.js
+*/
+
+@keyframes fade-in {
+  from {
+    transform: translateX(-10em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .header>h2,.content>p{
   font-family: 'Nunito', sans-serif;
   color:rgba(255, 102,0,0.95);
   padding:0.25rem
+}
+.content{
+  text-overflow: clip;
+  box-sizing: border-box;
+  word-wrap: break-word;
+
 }
 .card:hover {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19), 0 12px 12px rgba(0, 0, 0, 0.23);
@@ -106,7 +134,8 @@ h2,p,label{
   text-shadow: 1px 0.5px 0.5px rgba(0,0,0,0.6);
 }
 /*------------------------Mobile----------------------------------*/
-@media (max-width: 768px) 
-{
-  
+@media screen and (min-height: 1000px) {
+  footer {
+      position: relative;
+  }
 }

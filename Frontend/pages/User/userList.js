@@ -26,6 +26,7 @@ const putUsers = (users) => {
     } else {
         users.forEach(user => {
             if (user.codUser != codUserLog) {
+                let data=new Date(user.entrada);
                 htmlUsers += "<div class='card'>";
                 htmlUsers += '<div class="card-inner">';
                 htmlUsers += '<div class="header">';
@@ -35,7 +36,7 @@ const putUsers = (users) => {
                 htmlUsers += `<p>Telefone: ${user.telefone}</p>`;
                 htmlUsers += `<p>Cargo: ${user.cargo}</p>`;
                 htmlUsers += `<p>Email: ${user.email}</p>`;
-                htmlUsers += `<p>Entrada: ${user.entrada}</p>`;
+                htmlUsers += `<p>Entrada: ${(data.getDate() + 1) + "/" + (data.getMonth() + 1) + "/" + data.getFullYear()}</p>`;
                 htmlUsers += `<img id="logo-can" onclick="deleteUser(${user.codUser})" src="../../components/icons/can.svg" />`;
                 htmlUsers += '</div></div></div>';
             }
@@ -43,6 +44,7 @@ const putUsers = (users) => {
         });
     }
     field.innerHTML = htmlUsers;
+    cardEffects();
 }
 
 const deleteUser = async (codUser) => {
