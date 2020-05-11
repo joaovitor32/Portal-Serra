@@ -26,7 +26,7 @@ const checkFormValidityUser = (inputs) => {
     let validity = false;
 
     Object.values(inputs).forEach(element => {
-        if (element.tagName.toLowerCase() == "input") {
+        if (element.tagName.toLowerCase() == "input"||element.tagName.toLowerCase() == "textarea") {
             validity = true;
             element.classList.remove('input-error');
             if (element.value.length == 0) {
@@ -57,7 +57,7 @@ const checkFormValidityUser = (inputs) => {
 const getBody = (inputs) => {
     let body = {}
     Object.values(inputs).forEach(element => {
-        if (element.tagName.toLowerCase() == "input") {
+        if (element.tagName.toLowerCase() == "input"||element.tagName.toLowerCase() == "textarea") {
             body[element.name] = element.value
         }
     })

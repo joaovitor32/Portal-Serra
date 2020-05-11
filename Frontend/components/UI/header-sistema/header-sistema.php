@@ -12,5 +12,6 @@
 <div id="mySidenav" class="sidenav">
   <button  class="closebtn" onclick="closeDrawer()">&times;</button>
   <a href="./../../pages/User/userData.php">Usuário</a>
+  <a href="./../../pages/Mensagens/newMessage.php">Mensagem</a>
 </div>
 
