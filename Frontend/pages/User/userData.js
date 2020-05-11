@@ -21,6 +21,12 @@ const display = (number) => {
     }
 }
 
+const putValuesForm=(inputs,user)=>{
+    Object.values(inputs).forEach(element=>{
+        element.value=user[element.name];
+    })
+}
+
 const putData = (user) => {
     let entradaDate = new Date(user.entrada);
 
@@ -32,6 +38,7 @@ const putData = (user) => {
 }
 
 const fetchUser = async () => {
+    let inputs = formUser.elements;
     try {
         const response = await fetch(url + "users/read.php", {
             method: 'GET',
@@ -41,6 +48,7 @@ const fetchUser = async () => {
             body: null
         })
         let user = await response.json();
+        putValuesForm(inputs,user);
         deactivateLoader();
         localStorage.setItem("codUser", user.codUser);
         putData(user);

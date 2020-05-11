@@ -116,11 +116,11 @@
                 </div>
             </div>
         </div>
+        <a href="./userList.php"><img id="list-button" src="../../components/icons/list.svg" /></a>
     </div>
     <?php
     require("../../components/UI/footer/footer.php")
     ?>
-    <a href="./userList.php"><img id="list-button" src="../../components/icons/list.svg" /></a>
 
     <?php
     require("../../components/UI/Modal/Modal.html")
