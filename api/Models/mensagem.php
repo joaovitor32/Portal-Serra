@@ -57,7 +57,7 @@
                 $conexao=$db->conect_database();
 
                 //  Variável string
-                $sqlLista="SELECT mensagem,texto,`data` FROM mensagem";
+                $sqlLista="SELECT idMensagem,mensagem,texto,`data` FROM mensagem";
 
 
                 //  Usa função "exec" já definida no PHP
@@ -81,7 +81,7 @@
             
             
             //  Em caso de erro, retorna uma mensagem
-            }catch(PDOExcetpion $e){
+            }catch(PDOException $e){
                 http_response_code(500);
                 echo json_encode("Error", $e->getMessage());
             }
