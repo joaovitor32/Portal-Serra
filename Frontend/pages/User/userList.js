@@ -1,6 +1,11 @@
+import {openDrawer,closeDrawer} from '../../components/UI/header-sistema/header-sistema.js'
+import {activateLoader,deactivateLoader} from '../GeneralJavascript/Effects.js'
+import {errModal} from '../../components/UI/Modal/Modal.js'
+import {cardEffects} from '../GeneralJavascript/Effects.js'
+import { checkValidityPages} from '../GeneralJavascript/CheckValidity.js'
+
 let field = document.getElementById('box-cursos-item')
 let codUserLog = localStorage.getItem('codUser')
-
 let usersArray = []
 
 const searchName = event => {
@@ -90,7 +95,13 @@ const fetchUsers = async () => {
 
 window.onload = () => {
     fetchUsers();
+    checkValidityPages();
 }
 window.onbeforeunload = () => {
     localStorage.removeItem('codUser');
 }
+
+window.deleteUser=deleteUser;
+window.searchName=searchName;
+window.openDrawer=openDrawer;
+window.closeDrawer=closeDrawer;

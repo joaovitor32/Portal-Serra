@@ -1,5 +1,5 @@
 h4, h5, h5, span, p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 a, li, ul {
@@ -16,9 +16,6 @@ ul {
     height: 100%;
 }
 
-.box-emails>h5 {
-    font-family: 'Nunito', sans-serif;
-}
 
 footer {
     margin: 0;
@@ -107,8 +104,11 @@ footer {
     .container {
         height: 100%;
     }
+   
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
     footer {
-        position: relative;
+        position: fixed;
     }
 }
 

@@ -1,4 +1,4 @@
-const mask = (o, f) => {
+export const mask = (o, f) => {
     setTimeout(function () {
         var v = mphone(o.value);
         if (v != o.value) {
@@ -7,7 +7,14 @@ const mask = (o, f) => {
     }, 1);
 }
 
-const mphone = (v) => {
+
+export const putValuesForm=(inputs,user)=>{
+    Object.values(inputs).forEach(element=>{
+        element.value=user[element.name];
+    })
+}
+
+export const mphone = (v) => {
     var r = v.replace(/\D/g, "");
     r = r.replace(/^0/, "");
     if (r.length > 10) {
@@ -22,7 +29,7 @@ const mphone = (v) => {
     return r;
 }
 
-const checkFormValidityUser = (inputs) => {
+export const checkFormValidityUser = (inputs) => {
     let validity = false;
 
     Object.values(inputs).forEach(element => {
@@ -54,7 +61,7 @@ const checkFormValidityUser = (inputs) => {
     return validity;
 }
 
-const getBody = (inputs) => {
+export const getBody = (inputs) => {
     let body = {}
     Object.values(inputs).forEach(element => {
         if (element.tagName.toLowerCase() == "input"||element.tagName.toLowerCase() == "textarea") {

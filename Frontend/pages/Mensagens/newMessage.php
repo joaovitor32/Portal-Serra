@@ -46,12 +46,8 @@
         <?php
         require("../../components/UI/Modal/Modal.html")
         ?>
-        <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
         <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
-        <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
-        <script type="text/javascript" src="../GeneralJavascript/FormFunctions.js"></script>
-        <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
-        <script type="text/javascript" src="./newMessage.js"></script>
+        <script type="module" src="./newMessage.js"></script>
 </body>
 
 </html>

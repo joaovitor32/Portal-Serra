@@ -1,12 +1,12 @@
 var modalBox = document.getElementById("myModal");
 let modalContent = document.getElementById('modal-content')
 
-const errModal = (err) => {
+export const errModal = (err) => {
   modalBox.style.display = "block";
   modalContent.innerHTML = err;
 }
 
-const close = () => {
+export const close = () => {
   modalBox.style.display = "none";
 }
 

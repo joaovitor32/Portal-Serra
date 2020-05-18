@@ -36,11 +36,7 @@
     require("../../components/UI/Modal/Modal.html")
     ?>
     <script type="text/javascript" src="../GeneralJavascript/GlobalVariables.js"></script>
-    <script type="text/javascript" src="../../components/UI/header-sistema/header-sistema.js"></script>
-    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
-    <script type="text/javascript" src="../GeneralJavascript/CheckValidity.js"></script>
-    <script type="text/javascript" src="../GeneralJavascript/Card.js"></script>
-    <script type="text/javascript" src="./userList.js"></script>
+    <script type="module" src="./userList.js"></script>
 </body>
 
 </html>

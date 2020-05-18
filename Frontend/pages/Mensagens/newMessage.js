@@ -1,3 +1,10 @@
+import {deactivateLoader} from '../GeneralJavascript/Effects.js'
+import {checkFormValidityUser,getBody} from '../GeneralJavascript/FormFunctions.js'
+import {errModal} from '../../components/UI/Modal/Modal.js'
+import {openDrawer,closeDrawer} from '../../components/UI/header-sistema/header-sistema.js'
+
+import { checkValidityPages} from '../GeneralJavascript/CheckValidity.js'
+
 let formNewMessage=document.getElementById('new-message');
 
 const newMessage=async (event)=>{
@@ -25,4 +32,9 @@ const newMessage=async (event)=>{
 
 window.onload=()=>{
     deactivateLoader();
+    checkValidityPages();
 }
+
+window.newMessage=newMessage;
+window.openDrawer=openDrawer;
+window.closeDrawer=closeDrawer;

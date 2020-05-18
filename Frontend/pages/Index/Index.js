@@ -1,3 +1,6 @@
+import {errModal} from '../../components/UI/Modal/Modal.js'
+
+
 let form = document.getElementById('form-login');
 
 let nome = form.elements[0];
@@ -27,7 +30,7 @@ const checkValidityForm = () => {
     return validityNome&&validitySenha;
 }
 
-const submitLogin = async e => {
+export const submitLogin = async e => {
     e.preventDefault();
     if (checkValidityForm()) {
         try {
@@ -41,6 +44,10 @@ const submitLogin = async e => {
                     'Content-Type': "application/json",
                 },
             })
+
+            if (!response.ok) {
+                throw new Error('Usuário não encontrado');
+            }
 
             const token = await response.json()
 
@@ -57,3 +64,5 @@ const submitLogin = async e => {
         }
     }
 }
+
+window.submitLogin=submitLogin;

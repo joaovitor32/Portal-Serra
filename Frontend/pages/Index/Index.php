@@ -8,7 +8,6 @@
     <link rel='stylesheet' type='text/css' href='../../components/UI/footer/footer.css'>
     <link rel='stylesheet' type='text/css' href='../../components/UI/form/styles.css'>
     <link rel='stylesheet' type='text/css' href='../../components/UI/Modal/Modal.css'>
-    <link rel='stylesheet' type='text/css' href='../../components/UI/barra-de-navegacao/barra-de-navegacao.css'>
     <link rel='stylesheet' type='text/css' href='./Index.css'>
 
 
@@ -45,8 +44,7 @@
     <?php
     require("../../components/UI/Modal/Modal.html")
     ?>
-    <script type="text/javascript" src="../../components/UI/Modal/Modal.js"></script>
-    <script type="text/javascript" src="./Index.js"></script>
+    <script type="module" src="./Index.js"></script>
 </body>
 
 </html>
