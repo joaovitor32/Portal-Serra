@@ -19,7 +19,7 @@ div, body, p {
     height: 100%;
 }
 #content{
-    margin-top:5rem;
+    margin:5rem 0rem;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -33,4 +33,9 @@ div, body, p {
 #content>strong{
     font-size: 1.5rem;
     font-family: 'Nunito', sans-serif;
+}
+#LogoSerra{
+    width: 8rem;
+    height: 8rem;
+    padding:2rem;
 }

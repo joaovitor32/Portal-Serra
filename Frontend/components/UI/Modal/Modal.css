@@ -79,16 +79,11 @@
 @media only screen and (max-width: 768px) {
   .modal-content {
     max-width: 75%;
-    height: 10rem;
+    height: auto;
+    margin-top:5rem;
   }
   #btn-close {
-    height: 4rem;
-    width: 4rem;
-    
-  }
-  .modal-header {
-    padding-left: 0.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    width: 3rem;
+    height: 3rem;
   }
 }

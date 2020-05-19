@@ -1,3 +1,9 @@
+import {activateLoader,deactivateLoader} from '../GeneralJavascript/Effects.js'
+import {errModal} from '../../components/UI/Modal/Modal.js'
+import {openDrawer,closeDrawer} from '../../components/UI/header-sistema/header-sistema.js'
+import {mphone,putValuesForm,checkFormValidityUser,getBody,mask,} from '../GeneralJavascript/FormFunctions.js'
+import { checkValidityPages} from '../GeneralJavascript/CheckValidity.js'
+
 let name = document.getElementById('name')
 let entrada = document.getElementById('entrada');
 let cargo = document.getElementById('cargo')
@@ -9,7 +15,7 @@ let newUserForm = document.getElementById("form-cad-user")
 
 const display = (number) => {
     let section = document.getElementsByClassName('section');
-    for (i = 0; i < section.length; ++i) {
+    for (let i = 0; i < section.length; ++i) {
         if (i == number) {
             if (i == 0) {
                 fetchUser();
@@ -19,12 +25,6 @@ const display = (number) => {
             section[i].style.display = "none";
         }
     }
-}
-
-const putValuesForm=(inputs,user)=>{
-    Object.values(inputs).forEach(element=>{
-        element.value=user[element.name];
-    })
 }
 
 const putData = (user) => {
@@ -73,6 +73,7 @@ const updateUser = async e => {
                 }
             })
             formUser.reset();
+            fetchUser();
         } catch (err) {
             errModal("Algum campo está vazio");
             formUser.reset()
@@ -98,6 +99,7 @@ const newUser = async e => {
                 }
             })
             newUserForm.reset();
+            fetchUser();
         } catch (err) {
             errModal("Algum campo está vazio");
             formUser.reset()
@@ -106,8 +108,17 @@ const newUser = async e => {
     }
 }
 
+window.display=display;
+window.newUser=newUser;
+window.updateUser=updateUser;
+window.mask=mask;
+window.mphone=mphone;
+
+window.openDrawer=openDrawer,
+window.closeDrawer=closeDrawer;
 
 window.onload = () => {
     activateLoader();
     fetchUser();
+    checkValidityPages();
 }

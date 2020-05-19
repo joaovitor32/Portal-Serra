@@ -67,7 +67,7 @@ h2,p,label{
   height: auto;
   margin: 1rem 2rem;
   border-radius: 1rem;
-  animation: fade-in 0.5s ease-in forwards;
+  animation: fade-in 0.35s ease-out forwards;
   opacity: 0;
 
 }

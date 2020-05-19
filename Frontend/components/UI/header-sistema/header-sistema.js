@@ -1,11 +1,14 @@
+import {removeData} from '../../../pages/GeneralJavascript/CheckValidity.js'
+
 const endSession=()=>{
-    localStorage.removeItem('token');
-    window.location.replace("http://localhost:8080/Frontend/pages/Index/Index.php");
+    removeData()
 }
 
-const openDrawer=()=>{
+export const openDrawer=()=>{
     document.getElementById("mySidenav").style.width = "250px";
 }
-const closeDrawer=()=>{
+export const closeDrawer=()=>{
     document.getElementById("mySidenav").style.width = "0";
 }
+
+window.endSession=endSession;

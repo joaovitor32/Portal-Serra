@@ -215,7 +215,6 @@ class User{
             $result = $stmtDelete->execute();
 
             if ($result) {
-
                 http_response_code(204);
             } else {
                 http_response_code(400);

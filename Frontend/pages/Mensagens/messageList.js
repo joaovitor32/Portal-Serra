@@ -1,3 +1,9 @@
+import {openDrawer,closeDrawer} from '../../components/UI/header-sistema/header-sistema.js'
+import {activateLoader,deactivateLoader,cardEffects} from '../GeneralJavascript/Effects.js'
+import {errModal} from '../../components/UI/Modal/Modal.js'
+
+import { checkValidityPages} from '../GeneralJavascript/CheckValidity.js'
+
 let boxMessages = document.getElementById('box-messages-item');
 
 const deleteMessage=async codMessage=>{
@@ -63,4 +69,9 @@ const fetchMessages = async () => {
 
 window.onload = () => {
     fetchMessages();
+    checkValidityPages();
 }
+
+window.openDrawer=openDrawer;
+window.closeDrawer=closeDrawer;
+window.deleteMessage=deleteMessage;
