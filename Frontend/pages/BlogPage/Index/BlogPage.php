@@ -35,6 +35,15 @@
             <button id="btn-seach">Procurar</button>
         </div>
     </div>
+
+    <div class="content-box">
+        <div class="content-wraper">
+            <p class="title">Lorem Ipsum</p>
+                <p class="p-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus nulla atque quasi cupiditate! Dolor ratione optio distinctio dolore eligendi amet ullam facilis sint, corrupti voluptatem ex pariatur magni quam ducimus.
+                </p>
+        </div>
+    </div>
+
     <!----- Modal ------>
     <?php
     require("../../../components/UI/Modal/Modal.html")
