@@ -9,7 +9,7 @@
 
 			<div class="header-item-3">
 				<div class="header-subitem-3-1">
-					<a href="" class="blog-link">Projetos</a>
+					<a href="../../../pages/BlogPage/Portfolio/Portfolio.php" class="blog-link">Portfólio</a>
 				</div>
 				<div class="header-subitem-3-2">
 					<a href="../../../pages/BlogPage/Historia/Historia.php" class="blog-link">História</a>
