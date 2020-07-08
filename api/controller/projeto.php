@@ -36,7 +36,7 @@ function execute_action($acao,$requestBody,$requestHeader){
 					$projeto->update();
 					return;
 				break;
-				case "DELETE_RESPOSTA":
+				case "DELETE_PROJETO":
 					include '../../Models/projeto.php';
 					$projeto=new Projeto();
 					$projeto->setIdProjeto($requestBody->idProjeto);

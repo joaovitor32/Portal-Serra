@@ -11,7 +11,7 @@
 			return $this->idProjeto;
 		}
 		public function getTitulo(){
-			return $this->titulo
+			return $this->titulo;
 		}
 		public function getDescricao(){
 			return $this->descricao;
