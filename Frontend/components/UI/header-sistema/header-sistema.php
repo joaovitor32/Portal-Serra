@@ -13,5 +13,6 @@
   <button  class="closebtn" onclick="closeDrawer()">&times;</button>
   <a href="./../../pages/User/userData.php">Usuário</a>
   <a href="./../../pages/Mensagens/newMessage.php">Mensagem</a>
+  <a href="./../../pages/Projetos/newProject.php">Projeto</a>
 </div>
 
