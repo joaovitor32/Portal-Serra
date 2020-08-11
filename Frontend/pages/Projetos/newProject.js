@@ -13,7 +13,7 @@ const newProject=async (event)=>{
     if(checkFormValidityUser(inputs)){
         try{
             let body=getBody(inputs);
-            await fetch(url+"mensagens/create.php",{
+            await fetch(url+"projetos/create.php",{
                 method:"POST",
                 body,
                 headers: {
